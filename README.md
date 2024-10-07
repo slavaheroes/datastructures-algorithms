@@ -3,4 +3,4 @@
 To Do List:
 
 - [ ] Visualization of sorting algos
-- [] Add complexity analysis for difficult problems
+- [ ] Add complexity analysis for difficult problems

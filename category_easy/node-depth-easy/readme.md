@@ -1,1 +1,0 @@
-Given a Binary Tree, we are asked to find the depth of each node in the tree and return the sum of all nodes' depths. The depth of the root node is 0.
