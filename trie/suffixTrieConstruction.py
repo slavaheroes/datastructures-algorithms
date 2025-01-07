@@ -10,7 +10,7 @@ class SuffixTrie:
 
     def populateSuffixTrieFrom(self, string):
         # Write your code here.
-        
+        # O(len(string)^2)
         for i in range(len(string)):
             if not string[i] in self.root:
                 self.root[string[i]] = {}
