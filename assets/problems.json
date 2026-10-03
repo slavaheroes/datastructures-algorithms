@@ -1,0 +1,155 @@
+[
+  {
+    "slug": "contains-duplicate",
+    "title": "Contains Duplicate",
+    "difficulty": "Easy",
+    "pattern": "Set membership",
+    "problem": "Determine whether any integer appears more than once in an array.",
+    "example": "Input: [1, 2, 3, 1]\nOutput: True",
+    "insight": "A set remembers what you have seen, so each new value needs only a membership check.",
+    "steps": [
+      "Begin with an empty set.",
+      "Insert 1, 2, and 3 because each is new.",
+      "The final 1 is already present; return True. If the loop finishes, return False."
+    ],
+    "complexity": "O(n) expected time and O(n) extra space, using expected O(1) hash-set operations.",
+    "pitfall": "Check before inserting. Empty and single-element arrays have no duplicates.",
+    "source": "neetcode/array-hashing/containsDuplicate.py"
+  },
+  {
+    "slug": "valid-anagram",
+    "title": "Valid Anagram",
+    "difficulty": "Easy",
+    "pattern": "Frequency counting",
+    "problem": "Determine whether two strings have exactly the same characters with the same multiplicities.",
+    "example": "'anagram', 'nagaram' → True\n'rat', 'car' → False",
+    "insight": "Order does not matter; counts do. A frequency map is a fingerprint of the characters.",
+    "steps": [
+      "Count each string's characters with Counter.",
+      "Both anagram and nagaram contain three a characters and one each of n, g, r, and m.",
+      "Compare the frequency maps; every count must agree."
+    ],
+    "complexity": "O(n + m) expected time and O(k) extra space for k distinct characters. With a fixed alphabet, space is O(1).",
+    "pitfall": "Sets lose multiplicity: 'aab' and 'abb' are not anagrams. This implementation matches characters exactly, including case.",
+    "source": "neetcode/array-hashing/validAnagram.py"
+  },
+  {
+    "slug": "two-sum",
+    "title": "Two Sum",
+    "difficulty": "Easy",
+    "pattern": "Complement lookup",
+    "problem": "Return two distinct indices whose values sum to the target. The standard problem guarantees one answer; this function returns [] if none exists.",
+    "example": "nums = [2, 7, 11, 15], target = 9\nOutput: [0, 1]",
+    "insight": "For value x, the only useful partner is target − x. Store earlier values and their indices.",
+    "steps": [
+      "2 needs 7. Nothing is stored yet; record 2 → 0.",
+      "7 needs 2, which is already stored at index 0.",
+      "Return [0, 1]. Looking up before inserting prevents using an index twice."
+    ],
+    "complexity": "O(n) expected time and O(n) extra space.",
+    "pitfall": "Return indices, not values. [3, 3] with target 6 is valid; a lone 3 cannot pair with itself.",
+    "source": "neetcode/array-hashing/twoSum.py"
+  },
+  {
+    "slug": "group-anagrams",
+    "title": "Group Anagrams",
+    "difficulty": "Medium",
+    "pattern": "Canonical keys",
+    "problem": "Group lowercase English words that are anagrams. Output order does not matter.",
+    "example": "['eat', 'tea', 'tan', 'ate', 'nat', 'bat']\n→ [['eat', 'tea', 'ate'], ['tan', 'nat'], ['bat']]",
+    "insight": "Anagrams share a 26-entry letter-count vector. Turn it into an immutable tuple to use as a dictionary key.",
+    "steps": [
+      "Count letters into positions a through z.",
+      "eat, tea, and ate share a key: one a, one e, and one t.",
+      "Append words to the list for each key and return the lists."
+    ],
+    "complexity": "O(C + 26n) expected time for n words with C characters total. O(n) extra space in the fixed-alphabet model, including grouped references and keys; input strings are reused.",
+    "pitfall": "This implementation assumes lowercase a–z. For arbitrary characters, choose a more general canonical key. Lists cannot be dictionary keys.",
+    "source": "neetcode/array-hashing/group-anagrams.py"
+  },
+  {
+    "slug": "top-k-frequent",
+    "title": "Top K Frequent Elements",
+    "difficulty": "Medium",
+    "pattern": "Frequency buckets",
+    "problem": "Return the k most frequent distinct integers. The standard problem guarantees a unique set of answers; output order does not matter.",
+    "example": "nums = [1, 1, 1, 2, 2, 3], k = 2\nOutput: [1, 2]",
+    "insight": "Frequency never exceeds input length. Use frequency as a bucket index instead of sorting values.",
+    "steps": [
+      "Count occurrences: 1 → 3, 2 → 2, 3 → 1.",
+      "Place 1 in bucket 3, 2 in bucket 2, and 3 in bucket 1.",
+      "Scan buckets from high to low, stopping after collecting k values."
+    ],
+    "complexity": "Bucket solution: O(n) expected time and O(n) space. Heap solution: O(n log k) time for k >= 2, O(n) for k = 1, and O(n) space including the frequency map.",
+    "pitfall": "The bucket solution assumes the standard constraint 1 <= k <= the number of distinct values. Stop inside the bucket loop to return exactly k elements.",
+    "source": "neetcode/array-hashing/topKFrequent.py"
+  },
+  {
+    "slug": "encode-decode",
+    "title": "Encode and Decode Strings",
+    "difficulty": "Medium",
+    "pattern": "Length prefixes",
+    "problem": "Encode a list of strings into one string and decode it without losing empty strings, delimiters, or other characters.",
+    "example": "Input: ['hi', '', 'a#b']\nEncoded: '2#hi0#3#a#b'\nDecoded: ['hi', '', 'a#b']",
+    "insight": "A separator alone is ambiguous. Prefix each word with its character length and # so the decoder knows exactly how much to read.",
+    "steps": [
+      "Encode hi as 2#hi, the empty string as 0#, and a#b as 3#a#b.",
+      "Read digits up to the next # to get a length.",
+      "Slice exactly that many characters, append the word, then move to the next prefix."
+    ],
+    "complexity": "O(L + n) time and space for n strings with L payload characters under the usual unit-cost length arithmetic model. Encoded output also includes decimal length prefixes.",
+    "pitfall": "decode assumes valid data produced by encode; it is not an untrusted-input parser. Lengths count Python characters, not UTF-8 bytes. [] and [''] encode differently.",
+    "source": "neetcode/array-hashing/encodeDecode.py"
+  },
+  {
+    "slug": "product-except-self",
+    "title": "Product of Array Except Self",
+    "difficulty": "Medium",
+    "pattern": "Prefix & suffix",
+    "problem": "For each position, return the product of every other value without division, in linear time.",
+    "example": "Input: [1, 2, 3, 4]\nOutput: [24, 12, 8, 6]",
+    "insight": "Everything except the current value equals the product to its left multiplied by the product to its right.",
+    "steps": [
+      "Write exclusive left products into the result: [1, 1, 2, 6].",
+      "Walk backward with a running suffix product starting at 1.",
+      "Multiply each result by its suffix before adding the current value to that suffix, producing [24, 12, 8, 6]."
+    ],
+    "complexity": "Both solutions take O(n) time. The first stores prefix and suffix arrays, using O(n) extra space. The reference solution uses O(1) auxiliary space excluding output. Arithmetic is treated as constant-cost under the problem constraints.",
+    "pitfall": "Update output before incorporating the current value into the prefix or suffix. Zeros and negative numbers work without special cases.",
+    "source": "neetcode/array-hashing/productExceptSelf.py"
+  },
+  {
+    "slug": "valid-sudoku",
+    "title": "Valid Sudoku",
+    "difficulty": "Medium",
+    "pattern": "Constraint sets",
+    "problem": "Check that filled cells in a 9×9 Sudoku board do not repeat a digit in any row, column, or 3×3 box. Empty cells are '.'.",
+    "example": "A row ['5', '3', '.', '.', '7', '.', '.', '.', '.'] is locally valid.\nAdding another '5' to that row makes the board invalid.",
+    "insight": "Each filled cell belongs to three independent constraints. Keep a set for each row, column, and box.",
+    "steps": [
+      "Create nine row sets, nine column sets, and nine box sets.",
+      "Skip empty cells. Compute box ID (r // 3) * 3 + c // 3.",
+      "Reject a digit already in any applicable set; otherwise insert it into all three. Return True when all cells pass."
+    ],
+    "complexity": "O(1) time and space for the fixed 81-cell board. For a generalized N×N board with square sub-boxes, time and stored entries are O(N²).",
+    "pitfall": "Validity does not imply solvability. Input must have the standard 9×9 shape and contain only '.' or digits '1' through '9'.",
+    "source": "neetcode/array-hashing/validSudoku.py"
+  },
+  {
+    "slug": "longest-consecutive",
+    "title": "Longest Consecutive Sequence",
+    "difficulty": "Medium",
+    "pattern": "Sequence starts",
+    "problem": "Find the length of the longest consecutive run of integer values. Values need not be adjacent in the input.",
+    "example": "Input: [100, 4, 200, 1, 3, 2]\nOutput: 4 (the run 1, 2, 3, 4)",
+    "insight": "Start counting only where the predecessor is missing. Each number then participates in one forward scan, despite the nested loop.",
+    "steps": [
+      "Put values into a set, removing duplicates.",
+      "4, 3, and 2 have predecessors, so skip starting scans there.",
+      "1 starts a run through 2, 3, and 4; 100 and 200 start one-element runs. The maximum is 4."
+    ],
+    "complexity": "O(n) expected time and O(n) extra space. Inner scans visit each distinct value at most once.",
+    "pitfall": "Iterate over the set, not the input: duplicate starts could repeat long scans. An empty array returns 0.",
+    "source": "neetcode/array-hashing/LongestConsecutiveSequence.py"
+  }
+]
