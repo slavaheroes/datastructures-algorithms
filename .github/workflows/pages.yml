@@ -26,7 +26,10 @@ jobs:
       - name: Test visualizer algorithms
         run: node --test tests/*.test.mjs
       - name: Check browser script syntax
-        run: node --check assets/app.mjs
+        run: |
+          while IFS= read -r -d '' script; do
+            node --check "$script"
+          done < <(find assets -type f -name '*.mjs' -print0)
       - name: Build static site
         run: uv run --no-project python scripts/build.py
       - name: Upload site

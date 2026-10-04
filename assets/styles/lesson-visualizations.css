@@ -1,0 +1,42 @@
+.histogram-input-row { display:flex; align-items:center; gap:10px; }
+.histogram-input-row input { flex:1; }
+.histogram-input-row button { white-space:nowrap; }
+.histogram-svg { display:block; width:100%; margin:16px 0; }
+.histogram-svg text { text-anchor:middle; fill:var(--ink); font:12px monospace; }
+.histogram-bar { fill:#b4c995; }
+.histogram-bar.current { fill:var(--orange); }
+.histogram-bar.sentinel { stroke:var(--muted); stroke-dasharray:3 2; }
+.histogram-candidate { fill:#35624b18; stroke:var(--green); stroke-width:3; }
+.histogram-message { min-height:48px; }
+.histogram-stack { font-size:13px; }
+.lesson .histogram-stack ol { display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:8px 0; }
+.lesson .histogram-stack li { border:1px solid var(--line); border-radius:4px; padding:4px 8px; margin:0; font:12px monospace; }
+.histogram-controls { display:flex; align-items:center; flex-wrap:wrap; gap:10px; margin-top:18px; }
+.height-input-row { display:flex; align-items:center; gap:10px; }
+.height-input-row input { flex:1; }
+.height-input-row button { white-space:nowrap; }
+.height-legend { color:var(--muted); font-size:12px!important; }
+.height-svg { display:block; width:100%; margin:16px 0; }
+.height-svg text { text-anchor:middle; fill:var(--ink); font:12px monospace; }
+.height-bar { fill:#b4c995; }
+.height-bar.current { fill:var(--orange); }
+.height-bar.left-pointer { stroke:var(--green); stroke-width:3; }
+.height-bar.right-pointer { stroke:var(--orange); stroke-width:3; }
+.height-water { fill:#93c4df; stroke:#397b9f; stroke-width:1; }
+.height-water.container-water { fill:#93c4df80; }
+.height-water.current-water { stroke:var(--orange); stroke-width:2; }
+.height-svg .height-pointer-label { font-weight:bold; }
+.height-message { min-height:48px; }
+.height-stats { display:flex; flex-wrap:wrap; gap:14px 28px; margin:18px 0; }
+.height-stats dt { font-size:12px; color:var(--muted); }
+.height-stats dd { margin:3px 0 0; font-size:16px; font-variant-numeric:tabular-nums; }
+.height-table table { border-collapse:collapse; font-size:13px; width:100%; }
+.height-table caption { text-align:left; font-size:12px; color:var(--muted); margin-bottom:8px; }
+.height-table th,.height-table td { border:1px solid var(--line); padding:5px 10px; text-align:right; }
+.height-table .current-row { background:#fbebdf; }
+.height-controls { display:flex; align-items:center; gap:10px; flex-wrap:wrap; margin-top:18px; }
+.height-values { margin-top:18px; }
+.height-values > summary { font-size:14px; font-weight:600; margin-bottom:12px; }
+@media(max-width:700px) {
+  .histogram-input-row,.height-input-row { flex-wrap:wrap; }
+}

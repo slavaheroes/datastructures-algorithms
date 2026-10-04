@@ -1,0 +1,22 @@
+.lab-layout { display:grid; grid-template-columns:280px minmax(0,1fr); gap:22px; }
+.lab-layout > * { min-width:0; }
+.controls > h3:first-child { margin:0 0 18px; }
+.controls button { width:100%; margin-top:12px; }
+#tree-gallery { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:16px; }
+#tree-gallery > :only-child { grid-column:1 / -1; }
+.tree-svg { display:block; width:100%; }
+#graph-svg { display:block; width:100%; min-height:360px; }
+.node circle { fill:#edf3e8; stroke:var(--green); stroke-width:2; }
+.node text { fill:var(--ink); text-anchor:middle; dominant-baseline:central; font-family:monospace; font-size:14px; }
+.edge { stroke:#849b77; stroke-width:2; fill:none; }
+.canvas-caption { border-top:1px solid var(--line); padding:14px 22px; font-size:12px; color:var(--muted); }
+.insight { padding:20px 0; color:var(--muted); font-size:13px; }
+.insight>span { font-size:12px; font-weight:600; }
+.insight p { margin:6px 0 0; }
+@media(max-width:1000px) {
+  #tree-gallery { grid-template-columns:1fr; }
+  .lab-layout { grid-template-columns:250px minmax(0,1fr); }
+}
+@media(max-width:700px) {
+  .lab-layout { grid-template-columns:1fr; }
+}

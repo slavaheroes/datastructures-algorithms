@@ -1,0 +1,28 @@
+.practice-layout > aside { margin-bottom:22px; }
+#problems-panel > summary { font-size:18px; font-weight:600; }
+#lesson-list { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:22px; margin-top:18px; align-items:start; }
+#lesson-list a { padding:9px; border-radius:4px; font-size:13px; }
+#lesson-list a[aria-current=page] { background:#edf3e8; font-weight:600; }
+.lesson-category > summary { font-size:15px; font-weight:600; }
+.lesson-category-links { display:flex; flex-direction:column; gap:5px; margin-top:8px; }
+.lesson-number { color:var(--muted); font-variant-numeric:tabular-nums; margin-right:10px; }
+.lesson-category-label { color:var(--muted); margin-top:0; }
+.lesson-section { border-top:1px solid var(--line); margin-top:20px; padding-top:14px; }
+.lesson-section > summary { font-size:16px; font-weight:600; padding:4px 0; }
+.lesson-section > summary:hover { color:var(--green); }
+.lesson h2 { font-size:25px; line-height:1.3; }
+.lesson h3 { margin-top:24px; }
+.lesson p { font-size:14px; }
+.lesson pre { background:#f3f5f7; border:1px solid var(--line); border-radius:4px; padding:18px; font-size:12px; }
+.lesson .example { white-space:pre-wrap; }
+.lesson-meta { display:flex; gap:12px; align-items:center; }
+.pill { border:1px solid var(--line); border-radius:4px; font-size:12px; padding:2px 8px; }
+.lesson ol { padding-left:22px; font-size:14px; }
+.lesson li { margin:8px 0; }
+.lesson .complexity { border-left:3px solid #b2c88b; padding:1px 16px; }
+.lesson .text-link { display:inline-block; margin-top:12px; }
+@media(max-width:700px) {
+  .lesson pre { padding:14px; }
+  #lesson-list { grid-template-columns:1fr; }
+  .lesson-category-links { display:grid; grid-template-columns:1fr 1fr; }
+}
