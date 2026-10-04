@@ -5,11 +5,15 @@ import {sortingSteps} from './steps.mjs';
 import {sortBars} from './view.mjs';
 import {template} from './template.mjs';
 
-export function mountSorting(root) {
+export function mountSorting(root, {algorithmId} = {}) {
   root.innerHTML = template;
   const $ = id => byId(root, id);
   const attempt = action => guarded($('sort-error'), action);
   $('sort-algorithm').innerHTML = sortingAlgorithms.map(algorithm => `<option value="${escape(algorithm.id)}">${escape(algorithm.label)}</option>`).join('');
+  if (algorithmId) {
+    $('sort-algorithm').value = algorithmId;
+    $('sort-algorithm').parentElement.hidden = true;
+  }
   let frames = [], position = 0, timer = null;
 
   function pause() {

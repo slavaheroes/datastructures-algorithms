@@ -2,11 +2,11 @@ import {showLesson, hideLesson} from './lessons.mjs';
 
 const pages = {
   home: {title: 'Home'},
-  'data-structures': {title: 'Data Structures Visualizer', load: () => import('./pages/data-structures.mjs')},
+  'data-structures': {title: 'Data structures', load: () => import('./pages/data-structures.mjs')},
   algorithms: {title: 'Algorithms', load: () => import('./pages/algorithms.mjs')},
   practice: {title: 'NeetCode 150', enter: showLesson, leave: hideLesson}
 };
-const aliases = {structures: 'data-structures/trees', sorting: 'algorithms/sorting'};
+const aliases = {structures: 'data-structures/trees', sorting: 'algorithms/bubble-sort', 'algorithms/sorting': 'algorithms/bubble-sort'};
 const mounted = new Map(), loading = new Map();
 let active, request = 0;
 
@@ -14,8 +14,9 @@ async function route() {
   const current = ++request;
   let path = location.hash.slice(1);
   const [oldPage] = path.split('/');
-  if (Object.hasOwn(aliases, oldPage)) {
-    path = aliases[oldPage];
+  const alias = Object.hasOwn(aliases, path) ? path : oldPage;
+  if (Object.hasOwn(aliases, alias)) {
+    path = aliases[alias];
     history.replaceState(null, '', `#${path}`);
   }
   const [raw, section] = path.split('/');
