@@ -166,5 +166,141 @@
     "category": "Two Pointers",
     "source": "neetcode/two-pointers/trappingRainWater.py",
     "module": "assets/problems/trapping-rain-water.mjs"
+  },
+  {
+    "slug": "best-time-to-buy-and-sell-stock",
+    "title": "Best Time to Buy and Sell Stock",
+    "difficulty": "Easy",
+    "category": "Sliding Window",
+    "source": "neetcode/sliding-window/bestTimeToBuyAndSellStock.py",
+    "module": "assets/problems/best-time-to-buy-and-sell-stock.mjs"
+  },
+  {
+    "slug": "longest-substring-without-repeating-characters",
+    "title": "Longest Substring Without Repeating Characters",
+    "difficulty": "Medium",
+    "category": "Sliding Window",
+    "source": "neetcode/sliding-window/lengthOfLongestSubstring.py",
+    "module": "assets/problems/longest-substring-without-repeating-characters.mjs"
+  },
+  {
+    "slug": "longest-repeating-character-replacement",
+    "title": "Longest Repeating Character Replacement",
+    "difficulty": "Medium",
+    "category": "Sliding Window",
+    "source": "neetcode/sliding-window/characterReplacement.py",
+    "module": "assets/problems/longest-repeating-character-replacement.mjs"
+  },
+  {
+    "slug": "permutation-in-string",
+    "title": "Permutation in String",
+    "difficulty": "Medium",
+    "category": "Sliding Window",
+    "source": "neetcode/sliding-window/permutationInString.py",
+    "module": "assets/problems/permutation-in-string.mjs"
+  },
+  {
+    "slug": "minimum-window-substring",
+    "title": "Minimum Window Substring",
+    "difficulty": "Hard",
+    "category": "Sliding Window",
+    "source": "neetcode/sliding-window/minimumWindowSubstring.py",
+    "module": "assets/problems/minimum-window-substring.mjs"
+  },
+  {
+    "slug": "sliding-window-maximum",
+    "title": "Sliding Window Maximum",
+    "difficulty": "Hard",
+    "category": "Sliding Window",
+    "source": "neetcode/sliding-window/slidingWindowMaximum.py",
+    "module": "assets/problems/sliding-window-maximum.mjs"
+  },
+  {
+    "slug": "reverse-linked-list",
+    "title": "Reverse Linked List",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/reverseLinkedList.py",
+    "module": "assets/problems/reverse-linked-list.mjs"
+  },
+  {
+    "slug": "merge-two-sorted-lists",
+    "title": "Merge Two Sorted Lists",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/mergeTwoSortedLists.py",
+    "module": "assets/problems/merge-two-sorted-lists.mjs"
+  },
+  {
+    "slug": "reorder-list",
+    "title": "Reorder List",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/reorderList.py",
+    "module": "assets/problems/reorder-list.mjs"
+  },
+  {
+    "slug": "remove-nth-node-from-end",
+    "title": "Remove Nth Node From End of List",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/removeNthNodeFromEnd.py",
+    "module": "assets/problems/remove-nth-node-from-end.mjs"
+  },
+  {
+    "slug": "copy-list-with-random-pointer",
+    "title": "Copy List with Random Pointer",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/copyListWithRandomPointer.py",
+    "module": "assets/problems/copy-list-with-random-pointer.mjs"
+  },
+  {
+    "slug": "add-two-numbers",
+    "title": "Add Two Numbers",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/addTwoNumbers.py",
+    "module": "assets/problems/add-two-numbers.mjs"
+  },
+  {
+    "slug": "linked-list-cycle",
+    "title": "Linked List Cycle",
+    "difficulty": "Easy",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/linkedListCycle.py",
+    "module": "assets/problems/linked-list-cycle.mjs"
+  },
+  {
+    "slug": "find-the-duplicate-number",
+    "title": "Find the Duplicate Number",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/findDuplicate.py",
+    "module": "assets/problems/find-the-duplicate-number.mjs"
+  },
+  {
+    "slug": "lru-cache",
+    "title": "LRU Cache",
+    "difficulty": "Medium",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/LRUcache.py",
+    "module": "assets/problems/lru-cache.mjs"
+  },
+  {
+    "slug": "merge-k-sorted-lists",
+    "title": "Merge k Sorted Lists",
+    "difficulty": "Hard",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/mergeKLists.py",
+    "module": "assets/problems/merge-k-sorted-lists.mjs"
+  },
+  {
+    "slug": "reverse-nodes-in-k-group",
+    "title": "Reverse Nodes in k-Group",
+    "difficulty": "Hard",
+    "category": "Linked List",
+    "source": "neetcode/linked-lists/reverseKGroup.py",
+    "module": "assets/problems/reverse-nodes-in-k-group.mjs"
   }
 ]
