@@ -1,0 +1,34 @@
+.tree-lesson-scroll { max-height:480px; border:1px solid var(--line); border-radius:6px; background:var(--bg); }
+.tree-lesson-svg { display:block; width:100%; }
+.tree-lesson-svg text { fill:var(--ink); text-anchor:middle; font:12px monospace; }
+.tree-lesson-svg .tree-lesson-value { font-size:15px; font-weight:650; }
+.tree-lesson-svg .tree-lesson-label { fill:var(--orange); font-size:11px; font-weight:650; }
+.tree-lesson-svg .tree-lesson-gain { fill:var(--green); font-size:11px; }
+.tree-lesson-edge { stroke:var(--line); stroke-width:2; }
+.tree-lesson-edge.pending { stroke:var(--muted); stroke-dasharray:5 4; }
+.tree-lesson-edge.best { stroke:var(--green); stroke-width:5; }
+.tree-lesson-edge.candidate { stroke:var(--orange); stroke-width:3; stroke-dasharray:5 4; }
+.tree-lesson-node > circle:first-child { fill:var(--surface); stroke:var(--muted); stroke-width:1.5; }
+.tree-lesson-node.visited > circle:first-child { fill:var(--accent-soft); stroke:var(--green); }
+.tree-lesson-node.in-stack > circle:first-child { stroke:var(--green); stroke-width:2; }
+.tree-lesson-node.queued > circle:first-child { stroke:var(--green); stroke-width:2; stroke-dasharray:4 3; }
+.tree-lesson-node.best > circle:first-child,.tree-lesson-node.result > circle:first-child { fill:var(--accent-soft); stroke:var(--green); stroke-width:3; }
+.tree-lesson-node.current > circle:first-child { stroke:var(--orange); stroke-width:3.5; }
+.tree-lesson-node .target-ring { fill:none; stroke:var(--green); stroke-width:1.5; }
+.tree-lesson-node .candidate-ring { fill:none; stroke:var(--orange); stroke-width:2; stroke-dasharray:4 3; }
+.tree-lesson-panels { display:grid; gap:16px; margin-top:20px; }
+.tree-lesson-state { min-width:0; }
+.tree-lesson-state h4 { margin:0 0 8px; font-size:12px; font-weight:600; color:var(--muted); }
+.tree-lesson-state p { margin:0; }
+.tree-lesson-mono { font:13px/1.7 monospace; overflow-wrap:anywhere; }
+.lesson .tree-lesson-chips { display:flex; flex-wrap:wrap; gap:7px; list-style:none; margin:0; padding:0; }
+.lesson .tree-lesson-chips li { border:1px solid var(--line); background:var(--surface); padding:5px 9px; border-radius:4px; margin:0; font:12px/1.5 monospace; }
+.tree-lesson-empty { border:1px solid var(--line); border-radius:6px; padding:28px; text-align:center; color:var(--muted); }
+.lesson .tree-traversal-values { display:flex; width:max-content; list-style:none; margin:0; padding:4px; gap:5px; }
+.lesson .tree-traversal-values li { display:flex; flex-direction:column; align-items:center; width:56px; padding:5px; border:1px solid var(--line); border-radius:4px; margin:0; }
+.tree-traversal-values span { font:11px monospace; color:var(--muted); }
+.tree-traversal-values strong { font:600 16px monospace; margin:6px 0; }
+.tree-traversal-values .in-range { background:var(--accent-soft); border-color:var(--green); }
+.tree-traversal-values .at-pointer { outline:2px solid var(--orange); outline-offset:-2px; }
+.tree-traversal-values .consumed { border-style:dashed; color:var(--muted); }
+@media (max-width:700px) { .tree-lesson-scroll { max-height:400px; } }

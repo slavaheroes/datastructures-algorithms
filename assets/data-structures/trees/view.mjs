@@ -31,7 +31,7 @@ export function treeGallery(trees) {
       nodes += svgNode(point.x, point.y, node.value);
     }
     const caption = tree.length ? `Root: ${tree[0].value} · Height: ${maxDepth} edges` : 'Empty tree. Select this tree and add a node to create its root.';
-    const drawing = edges + nodes || `<text x="${width / 2}" y="140" text-anchor="middle" fill="#58636b">Empty tree</text>`;
+    const drawing = edges + nodes || `<text x="${width / 2}" y="140" text-anchor="middle" fill="var(--muted)">Empty tree</text>`;
     return `<section class="canvas-panel"><div class="canvas-heading"><span>Tree ${index + 1}</span><span>${tree.length}/${NODE_LIMIT} nodes</span></div><div class="svg-scroll"><svg class="tree-svg" viewBox="0 0 ${width} ${height}" style="min-width:${width}px" role="img" aria-label="Tree ${index + 1}, ${tree.length} nodes">${drawing}</svg></div><div class="canvas-caption">${caption}</div></section>`;
   }).join('');
 }

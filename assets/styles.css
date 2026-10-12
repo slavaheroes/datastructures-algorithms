@@ -3,3 +3,9 @@
 @import url('./styles/sorting.css');
 @import url('./styles/lessons.css');
 @import url('./styles/lesson-visualizations.css');
+@import url('./styles/tree-lessons.css');
+@import url('./styles/binary-search.css');
+@import url('./styles/heap.css');
+@import url('./styles/trie-lessons.css');
+@import url('./styles/heap-lessons.css');
+@import url('./styles/algorithm-code.css');

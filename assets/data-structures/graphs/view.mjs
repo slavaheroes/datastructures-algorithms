@@ -6,7 +6,7 @@ export function graphDrawing(graph, directed) {
     const angle = index * 2 * Math.PI / graph.nodes.length - Math.PI / 2;
     positions.set(id, {x: 400 + (graph.nodes.length === 1 ? 0 : 290 * Math.cos(angle)), y: 230 + (graph.nodes.length === 1 ? 0 : 160 * Math.sin(angle))});
   });
-  let drawing = '<defs><marker id="graph-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="#849b77"/></marker></defs>';
+  let drawing = '<defs><marker id="graph-arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0 L10 5 L0 10 Z" fill="var(--edge)"/></marker></defs>';
   for (const [from, to] of graph.edges) {
     const start = positions.get(from), end = positions.get(to);
     let path;
@@ -24,7 +24,7 @@ export function graphDrawing(graph, directed) {
     const position = positions.get(id);
     drawing += svgNode(position.x, position.y, id);
   }
-  if (!graph.nodes.length) drawing += '<text x="400" y="230" text-anchor="middle" fill="#64756e">No nodes.</text>';
+  if (!graph.nodes.length) drawing += '<text x="400" y="230" text-anchor="middle" fill="var(--muted)">No nodes.</text>';
   return drawing;
 }
 

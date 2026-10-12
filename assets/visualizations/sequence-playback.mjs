@@ -19,14 +19,20 @@ export function mountSequencePlayback(root, config) {
   function pause() { clearTimeout(timer); timer = null; button('play').textContent = 'Play'; }
   function render(announce = false) {
     const frame = frames[position];
-    const scrollPositions = [...find('drawing').querySelectorAll('.svg-scroll')].map(region => region.scrollLeft);
+    const scrollPositions = [...find('drawing').querySelectorAll('.svg-scroll')].map(region => ({left: region.scrollLeft, top: region.scrollTop}));
     find('drawing').innerHTML = config.render ? config.render(frame, input) : renderSequence(frame, input);
-    find('drawing').querySelectorAll('.svg-scroll').forEach((region, i) => { region.scrollLeft = scrollPositions[i] || 0; });
-    const focus = find('drawing').querySelector('[data-follow]');
-    if (focus) {
+    find('drawing').querySelectorAll('.svg-scroll').forEach((region, i) => {
+      region.scrollLeft = scrollPositions[i]?.left || 0;
+      region.scrollTop = scrollPositions[i]?.top || 0;
+    });
+    for (const focus of find('drawing').querySelectorAll('[data-follow]')) {
       const region = focus.closest('.svg-scroll'), bounds = region.getBoundingClientRect(), item = focus.getBoundingClientRect();
       if (item.right > bounds.right) region.scrollLeft += item.right - bounds.right + 16;
       else if (item.left < bounds.left) region.scrollLeft -= bounds.left - item.left + 16;
+      if (region.scrollHeight > region.clientHeight) {
+        if (item.bottom > bounds.bottom) region.scrollTop += item.bottom - bounds.bottom + 16;
+        else if (item.top < bounds.top) region.scrollTop -= bounds.top - item.top + 16;
+      }
     }
     find('message').textContent = frame.message;
     find('stats').innerHTML = (frame.stats || []).map(([label, value]) => `<div><dt>${escape(label)}</dt><dd>${escape(value)}</dd></div>`).join('');

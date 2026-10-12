@@ -90,7 +90,7 @@ function renderHeights(svg, heights, frame, kind) {
   const cell = (width - 48) / Math.max(1, heights.length);
   const scale = 160 / Math.max(1, ...heights);
   const center = index => 24 + (index + 0.5) * cell;
-  let drawing = `<line x1="24" y1="${base}" x2="${width - 24}" y2="${base}" stroke="#849b77"/>`;
+  let drawing = `<line x1="24" y1="${base}" x2="${width - 24}" y2="${base}" stroke="var(--edge)"/>`;
   if (frame.container) {
     const {left, right, height} = frame.container;
     drawing += `<rect class="height-water container-water" x="${center(left)}" y="${base - height * scale}" width="${(right - left) * cell}" height="${height * scale}"/>`;

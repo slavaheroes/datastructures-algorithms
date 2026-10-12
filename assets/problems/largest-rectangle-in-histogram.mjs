@@ -16,7 +16,7 @@ export default {
 // This lesson owns its visualization. The shared renderer calls this hook only
 // while the lesson is selected and calls the returned cleanup on navigation.
 export function mountVisualization(root) {
-  root.innerHTML = `<p>Step through the existing solution. Orange marks the current bar; the outlined rectangle is the candidate being evaluated. Stack entries show (height, earliest start index).</p>
+  root.innerHTML = `<p>Step through the existing solution. The highlighted bar is the current bar; the outlined rectangle is the candidate being evaluated. Stack entries show (height, earliest start index).</p>
     <label for="histogram-input">Bar heights</label><div class="histogram-input-row"><input id="histogram-input" value="[2,1,5,6,2,3]"><button type="button" data-action="load">Load heights</button></div>
     <p class="hint">Up to 16 nonnegative integer heights, each at most 999. S is the appended zero sentinel.</p><p class="error" role="alert" data-role="error"></p>
     <div class="svg-scroll"><svg class="histogram-svg" role="img" aria-label="Histogram"></svg></div>
@@ -67,7 +67,7 @@ export function mountVisualization(root) {
     const cell = (width - 48) / bars.length, base = 218;
     const scale = 165 / Math.max(1, ...heights);
     const candidate = frame.candidate;
-    let drawing = `<line x1="24" y1="${base}" x2="${width - 24}" y2="${base}" stroke="#849b77"/>`;
+    let drawing = `<line x1="24" y1="${base}" x2="${width - 24}" y2="${base}" stroke="var(--edge)"/>`;
     bars.forEach((height, i) => {
       const x = 24 + i * cell;
       drawing += `<rect class="histogram-bar ${i === frame.index ? 'current' : ''} ${i === heights.length ? 'sentinel' : ''}" x="${x + 3}" y="${base - Math.max(2, height * scale)}" width="${cell - 6}" height="${Math.max(2, height * scale)}"/><text x="${x + cell / 2}" y="${base - height * scale - 9}">${height}</text><text x="${x + cell / 2}" y="${base + 22}">${i === heights.length ? 'S' : i}</text>`;

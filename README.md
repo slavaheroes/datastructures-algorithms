@@ -1,6 +1,6 @@
 # Data structures and algorithms
 
-A personal study site with data structure visualizations, sorting algorithms, and NeetCode Python explanations. Hosted on GitHub Pages.
+A personal study site with data structure visualizations, sorting and heap operations, and NeetCode Python explanations. Hosted on GitHub Pages.
 
 ## Environment
 
@@ -27,7 +27,7 @@ The local preview disables browser caching so rebuilt scripts and styles load af
 
 ## Pages and visualizer modules
 
-`#data-structures` opens an overview with links to Trees and Graphs. `#data-structures/trees` and `#data-structures/graphs` each show a separate workspace. `#algorithms` lists Bubble, Merge, and Quick Sort, with individual routes at `#algorithms/bubble-sort`, `#algorithms/merge-sort`, and `#algorithms/quick-sort`. Previous `#structures`, `#sorting`, and `#algorithms/sorting` links redirect to the corresponding tools.
+`#data-structures` opens an overview with links to Trees and Graphs. `#data-structures/trees` and `#data-structures/graphs` each show a separate workspace. `#algorithms` lists Bubble, Merge, and Quick Sort, plus Heap, with individual routes at `#algorithms/bubble-sort`, `#algorithms/merge-sort`, `#algorithms/quick-sort`, and `#algorithms/heap`. Previous `#structures`, `#sorting`, and `#algorithms/sorting` links redirect to the corresponding tools.
 
 `assets/app.mjs` handles routing and loads page modules on demand. `assets/pages/data-structures.mjs` and `assets/pages/algorithms.mjs` list their sections, while `assets/pages/sections.mjs` builds the common page layout. Each tool mounts on its first visit; only the selected tool is attached to the page. Visualizers keep their state when switching tools or pages, and playback pauses when leaving a tool.
 
@@ -37,9 +37,17 @@ To add a data structure section, create its visualizer module with a mount funct
 
 Sorting modules live in `assets/sorting/`. Bubble, Merge, and Quick Sort each have their own file in `assets/sorting/algorithms/`, including their display name, complexity explanation, and `sort(trace)` function. Add a module to `assets/sorting/registry.mjs` to give it a link and workspace under Algorithms. Each workspace uses the shared sorting visualizer with a fixed algorithm and its own playback state. `trace.mjs` records comparisons, swaps, writes, and snapshots for shared playback. `assets/algorithms.mjs` retains the original exported functions for existing consumers and CI checks.
 
+Heap modules live in `assets/heap/`. The Heap workspace shows a complete binary tree and its indexed array together. Choose a min heap or max heap, then step through `heapify`, `heappush`, or `heappop` with up to 16 values. Playback highlights comparisons and swaps, supports Back and Reset, and pauses when leaving the workspace. Finish the current operation before starting another so the next operation uses its completed result. The explanations distinguish O(n) bottom-up heap construction from O(log n) insertion and removal; heap order does not imply a sorted array.
+
+Every Algorithms workspace includes Python code with numbered lines, the current operation, and variable values for the selected playback step. The diagram and code advance together with Play, Step, Back, and Reset. Code appears beside the diagram on wide screens and below it on narrow screens; its own scroll area follows the active line. Sorting code lives with each sorting algorithm, and heap code in `assets/heap/code.mjs` follows the selected operation and min/max mode. `assets/shared/algorithm-code.mjs` renders the shared panel. The Python listings describe the visualized implementations; heap sifts remain a teaching implementation rather than the exact internal moves of Python’s heapq.
+
+The code panel uses Python syntax colors and wraps long statements by default; Wrap lines switches to the original horizontal layout. Array values and recursion stacks occupy the full state area so their contents remain readable. Active line numbers stay tied to the source statements when a statement wraps across multiple display rows.
+
 ## NeetCode lessons
 
-The site covers all nine Arrays & Hashing problems, all seven Stacks problems, all five Two Pointers problems, all six Sliding Window problems, and all eleven Linked List problems. `#practice` shows only the topic browser, with problem counts and difficulty labels; no lesson is selected or imported automatically. Selecting a problem opens its lesson beside the topic list on wide screens. The Topics and problems panel and each category can be collapsed; hiding the panel gives the lesson the full width. All topics returns to the browser. Each problem has its own link, such as `#practice/largest-rectangle-in-histogram`, and its own JavaScript module in `assets/problems/`. Direct lesson links still work. Approach starts expanded; Steps, Python solution, Notes, and optional visualizations can be expanded independently.
+The site covers all nine Arrays & Hashing problems, all seven Stacks problems, all five Two Pointers problems, all six Sliding Window problems, all eleven Linked List problems, all fifteen Trees problems, all seven Binary Search problems, all three Tries problems, and all seven Heap problems. `#practice` shows the topic browser with each topic collapsed and its problem count visible; choose a topic to expand its problems. No lesson is selected or imported automatically. Selecting a problem opens its lesson beside the topic list on wide screens. All topics returns to the collapsed browser. Each problem has its own link, such as `#practice/largest-rectangle-in-histogram`, and its own JavaScript module in `assets/problems/`. Direct lesson links open their selected topic. Approach starts expanded; Steps, Python solution, Notes, and optional visualizations can be expanded independently.
+
+While reading a lesson, Hide topics gives the lesson the full width, and Show topics brings the list back. The header’s moon icon switches to night colors; the sun icon switches to light colors. Night uses charcoal surfaces with blue accents and amber operation highlights. The choice is saved locally; without a saved choice the site follows the system color preference.
 
 `assets/problems.json` lists each problem's category, module, and original Python source path. Edit the explanation in the problem's module. Python source is fetched directly from its listed `neetcode/` file when the Python solution section opens; the build copies that exact file into `_site/`. Generate Parentheses reuses `neetcode/backtracking/generateParenthesis.py`.
 
@@ -48,3 +56,11 @@ For a problem-specific visualization, export `mountVisualization(root)` from tha
 All six Sliding Window lessons and Linked List Cycle have editable examples with Play/Pause, Back, Step, Reset, and speed controls. `assets/visualizations/sequence-playback.mjs` owns their controls and cleanup; `sliding-window.mjs` and `linked-list-cycle.mjs` own the traces. Longest Substring Without Repeating Characters and Sliding Window Maximum offer both source versions. Floyd's visualization separates the saved detection implementation from standard initialization and the cycle-entry phase. Its proof explains equality modulo cycle length, including extra laps. Playback pauses when the disclosure closes, the tab becomes hidden, or the lesson changes.
 
 Reorder List, Remove Nth Node From End, and Permutation in String have new source files in their respective `neetcode/` categories. Existing practice solutions remain unchanged. Lesson explanations describe every stored version, including platform assumptions and source-specific complexity differences.
+
+Lowest Common Ancestor of a BST, Binary Tree Level Order Traversal, Construct Binary Tree from Preorder and Inorder Traversal, and Binary Tree Maximum Path Sum have editable tree examples and playback in `assets/visualizations/tree-lessons.mjs`. Tree inputs use compact level order with `null` for missing children, and allow up to 16 actual nodes. Other Trees lessons link to the Trees data structure visualizer. Invert Binary Tree adds the missing source at `neetcode/trees/invertTree.py`; the other tree sources are unchanged.
+
+Find Minimum in Rotated Sorted Array and Median of Two Sorted Arrays have editable array examples in `assets/visualizations/binary-search.mjs`. Their traces show the shrinking search interval and the two-array partition boundaries respectively, following the listed Python implementations. Both use the shared lesson playback controls and pause when leaving the lesson or closing the visualization.
+
+Word Search II has an editable board and word list in `assets/visualizations/trie-lessons.mjs`. Playback follows trie prefixes, marks the current board path, rejects cell reuse, restores visited cells during backtracking, and shows found words. Task Scheduler and Find Median from Data Stream use `assets/visualizations/heap-lessons.mjs`: the former shows the ready max heap, cooldown queue, and execution timeline; the latter shows the lower max heap, upper min heap, rebalancing, and median after each insertion. These visualizations use the shared lesson playback controls and pause when their disclosure closes or the lesson changes.
+
+Kth Largest Element in an Array adds the missing source at `neetcode/heap/kthLargestElement.py`. The remaining Tries and Heap lessons load the original repository solutions unchanged, including their Python 3.14 max-heap calls.

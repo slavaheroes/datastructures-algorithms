@@ -4,15 +4,17 @@ export const template = `<div class="sort-config panel">
   <button id="load-sort">Load array</button><button id="random-sort">Shuffle</button>
 </div>
 <p class="error" id="sort-error" role="alert"></p>
-<div class="canvas-panel">
+<div class="algorithm-workspace"><div class="canvas-panel">
   <div class="canvas-heading"><span id="sort-name">BUBBLE SORT</span><span><span class="legend-dot"></span> Active operation</span></div>
   <div id="sort-bars" aria-label="Array visualization"></div>
-  <p class="sort-message" id="sort-message" aria-live="polite"></p>
+  <p class="sort-message" id="sort-message"></p>
+  <p class="sr-only" id="sort-announcement" aria-live="polite"></p>
   <div class="playback">
-    <button id="sort-play" class="primary">Play</button><button id="sort-step">Step →</button><button id="sort-reset">Reset</button>
+    <button id="sort-play" class="primary">Play</button><button id="sort-back">← Back</button><button id="sort-step">Step →</button><button id="sort-reset">Reset</button>
     <label for="sort-speed">Speed <input id="sort-speed" type="range" min="1" max="10" value="5"></label><span id="sort-progress"></span>
   </div>
 </div>
+<section id="sort-code" class="algorithm-code-panel panel" aria-label="Algorithm code and current operation"></section></div>
 <div class="sort-facts">
   <div class="panel"><span class="eyebrow">OPERATIONS SO FAR</span><h3 id="sort-stats"></h3><p class="hint">Writes count changes to the displayed array.</p></div>
   <div class="panel"><span class="eyebrow">COMPLEXITY</span><p id="sort-explanation"></p><p class="hint">Complexities describe the algorithm. This teaching tool also stores snapshots for playback.</p></div>

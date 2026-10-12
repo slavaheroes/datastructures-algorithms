@@ -6,9 +6,9 @@
 #tree-gallery > :only-child { grid-column:1 / -1; }
 .tree-svg { display:block; width:100%; }
 #graph-svg { display:block; width:100%; min-height:360px; }
-.node circle { fill:#edf3e8; stroke:var(--green); stroke-width:2; }
+.node circle { fill:var(--node-fill); stroke:var(--green); stroke-width:2; }
 .node text { fill:var(--ink); text-anchor:middle; dominant-baseline:central; font-family:monospace; font-size:14px; }
-.edge { stroke:#849b77; stroke-width:2; fill:none; }
+.edge { stroke:var(--edge); stroke-width:2; fill:none; }
 .canvas-caption { border-top:1px solid var(--line); padding:14px 22px; font-size:12px; color:var(--muted); }
 .insight { padding:20px 0; color:var(--muted); font-size:13px; }
 .insight>span { font-size:12px; font-weight:600; }

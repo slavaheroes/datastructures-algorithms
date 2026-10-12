@@ -49,7 +49,7 @@ export function mountVisualization(root) {
   return mountHeightPlayback(root, {
     id: 'container', kind: 'container', initial: [1,8,6,2,5,4,8,3,7],
     description: 'Watch each candidate container and the decision to move its shorter boundary. The blue rectangle shows capacity between two vertical lines.',
-    legend: 'L = left pointer (green outline). R = right pointer (orange outline). Blue = candidate capacity. Labels above the lines are their heights.',
+    legend: 'L = left pointer. R = right pointer. The shaded rectangle shows candidate capacity. Labels above the lines are their heights.',
     modes: [{id: 'two-pointers', label: 'Two pointers', steps: containerSteps}]
   });
 }

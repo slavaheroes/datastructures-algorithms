@@ -302,5 +302,261 @@
     "category": "Linked List",
     "source": "neetcode/linked-lists/reverseKGroup.py",
     "module": "assets/problems/reverse-nodes-in-k-group.mjs"
+  },
+  {
+    "slug": "binary-search",
+    "title": "Binary Search",
+    "difficulty": "Easy",
+    "category": "Binary Search",
+    "source": "neetcode/binary-search/BinarySearch.py",
+    "module": "assets/problems/binary-search.mjs"
+  },
+  {
+    "slug": "search-a-2d-matrix",
+    "title": "Search a 2D Matrix",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "source": "neetcode/binary-search/search2Dmatrix.py",
+    "module": "assets/problems/search-a-2d-matrix.mjs"
+  },
+  {
+    "slug": "koko-eating-bananas",
+    "title": "Koko Eating Bananas",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "source": "neetcode/binary-search/cocoEatingBananas.py",
+    "module": "assets/problems/koko-eating-bananas.mjs"
+  },
+  {
+    "slug": "search-in-rotated-sorted-array",
+    "title": "Search in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "source": "neetcode/binary-search/searchInRotatedArray.py",
+    "module": "assets/problems/search-in-rotated-sorted-array.mjs"
+  },
+  {
+    "slug": "find-minimum-in-rotated-sorted-array",
+    "title": "Find Minimum in Rotated Sorted Array",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "source": "neetcode/binary-search/findMinInRotatedArray.py",
+    "module": "assets/problems/find-minimum-in-rotated-sorted-array.mjs"
+  },
+  {
+    "slug": "time-based-key-value-store",
+    "title": "Time Based Key-Value Store",
+    "difficulty": "Medium",
+    "category": "Binary Search",
+    "source": "neetcode/binary-search/TimeMap.py",
+    "module": "assets/problems/time-based-key-value-store.mjs"
+  },
+  {
+    "slug": "median-of-two-sorted-arrays",
+    "title": "Median of Two Sorted Arrays",
+    "difficulty": "Hard",
+    "category": "Binary Search",
+    "source": "neetcode/binary-search/medianOfTwoSortedArrays.py",
+    "module": "assets/problems/median-of-two-sorted-arrays.mjs"
+  },
+  {
+    "slug": "invert-binary-tree",
+    "title": "Invert Binary Tree",
+    "difficulty": "Easy",
+    "category": "Trees",
+    "source": "neetcode/trees/invertTree.py",
+    "module": "assets/problems/invert-binary-tree.mjs"
+  },
+  {
+    "slug": "maximum-depth-of-binary-tree",
+    "title": "Maximum Depth of Binary Tree",
+    "difficulty": "Easy",
+    "category": "Trees",
+    "source": "neetcode/trees/maxDepth.py",
+    "module": "assets/problems/maximum-depth-of-binary-tree.mjs"
+  },
+  {
+    "slug": "diameter-of-binary-tree",
+    "title": "Diameter of Binary Tree",
+    "difficulty": "Easy",
+    "category": "Trees",
+    "source": "neetcode/trees/diameterOfTree.py",
+    "module": "assets/problems/diameter-of-binary-tree.mjs"
+  },
+  {
+    "slug": "balanced-binary-tree",
+    "title": "Balanced Binary Tree",
+    "difficulty": "Easy",
+    "category": "Trees",
+    "source": "neetcode/trees/isBalanced.py",
+    "module": "assets/problems/balanced-binary-tree.mjs"
+  },
+  {
+    "slug": "same-tree",
+    "title": "Same Tree",
+    "difficulty": "Easy",
+    "category": "Trees",
+    "source": "neetcode/trees/sameBinaryTree.py",
+    "module": "assets/problems/same-tree.mjs"
+  },
+  {
+    "slug": "subtree-of-another-tree",
+    "title": "Subtree of Another Tree",
+    "difficulty": "Easy",
+    "category": "Trees",
+    "source": "neetcode/trees/isSubtree.py",
+    "module": "assets/problems/subtree-of-another-tree.mjs"
+  },
+  {
+    "slug": "lowest-common-ancestor-of-a-bst",
+    "title": "Lowest Common Ancestor of a Binary Search Tree",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "source": "neetcode/trees/lowestCommonAncestor.py",
+    "module": "assets/problems/lowest-common-ancestor-of-a-bst.mjs"
+  },
+  {
+    "slug": "binary-tree-level-order-traversal",
+    "title": "Binary Tree Level Order Traversal",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "source": "neetcode/trees/levelOrderTraversal.py",
+    "module": "assets/problems/binary-tree-level-order-traversal.mjs"
+  },
+  {
+    "slug": "binary-tree-right-side-view",
+    "title": "Binary Tree Right Side View",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "source": "neetcode/trees/rightSideView.py",
+    "module": "assets/problems/binary-tree-right-side-view.mjs"
+  },
+  {
+    "slug": "count-good-nodes-in-binary-tree",
+    "title": "Count Good Nodes in Binary Tree",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "source": "neetcode/trees/countGoodNodes.py",
+    "module": "assets/problems/count-good-nodes-in-binary-tree.mjs"
+  },
+  {
+    "slug": "validate-binary-search-tree",
+    "title": "Validate Binary Search Tree",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "source": "neetcode/trees/isValidBST.py",
+    "module": "assets/problems/validate-binary-search-tree.mjs"
+  },
+  {
+    "slug": "kth-smallest-element-in-a-bst",
+    "title": "Kth Smallest Element in a BST",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "source": "neetcode/trees/kthSmallestInteger.py",
+    "module": "assets/problems/kth-smallest-element-in-a-bst.mjs"
+  },
+  {
+    "slug": "construct-binary-tree-from-preorder-and-inorder-traversal",
+    "title": "Construct Binary Tree from Preorder and Inorder Traversal",
+    "difficulty": "Medium",
+    "category": "Trees",
+    "source": "neetcode/trees/buildTree.py",
+    "module": "assets/problems/construct-binary-tree-from-preorder-and-inorder-traversal.mjs"
+  },
+  {
+    "slug": "binary-tree-maximum-path-sum",
+    "title": "Binary Tree Maximum Path Sum",
+    "difficulty": "Hard",
+    "category": "Trees",
+    "source": "neetcode/trees/maxPathSum.py",
+    "module": "assets/problems/binary-tree-maximum-path-sum.mjs"
+  },
+  {
+    "slug": "serialize-and-deserialize-binary-tree",
+    "title": "Serialize and Deserialize Binary Tree",
+    "difficulty": "Hard",
+    "category": "Trees",
+    "source": "neetcode/trees/SerializeAndDeserializeTree.py",
+    "module": "assets/problems/serialize-and-deserialize-binary-tree.mjs"
+  },
+  {
+    "slug": "implement-trie",
+    "title": "Implement Trie (Prefix Tree)",
+    "difficulty": "Medium",
+    "category": "Tries",
+    "source": "neetcode/tries/implementPrefixTree.py",
+    "module": "assets/problems/implement-trie.mjs"
+  },
+  {
+    "slug": "design-add-and-search-words-data-structure",
+    "title": "Design Add and Search Words Data Structure",
+    "difficulty": "Medium",
+    "category": "Tries",
+    "source": "neetcode/tries/wordDictionary.py",
+    "module": "assets/problems/design-add-and-search-words-data-structure.mjs"
+  },
+  {
+    "slug": "word-search-ii",
+    "title": "Word Search II",
+    "difficulty": "Hard",
+    "category": "Tries",
+    "source": "neetcode/tries/wordSearch2.py",
+    "module": "assets/problems/word-search-ii.mjs"
+  },
+  {
+    "slug": "kth-largest-element-in-a-stream",
+    "title": "Kth Largest Element in a Stream",
+    "difficulty": "Easy",
+    "category": "Heap",
+    "source": "neetcode/heap/KthLargest.py",
+    "module": "assets/problems/kth-largest-element-in-a-stream.mjs"
+  },
+  {
+    "slug": "last-stone-weight",
+    "title": "Last Stone Weight",
+    "difficulty": "Easy",
+    "category": "Heap",
+    "source": "neetcode/heap/lastStoneWeight.py",
+    "module": "assets/problems/last-stone-weight.mjs"
+  },
+  {
+    "slug": "k-closest-points-to-origin",
+    "title": "K Closest Points to Origin",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "source": "neetcode/heap/KthClosest.py",
+    "module": "assets/problems/k-closest-points-to-origin.mjs"
+  },
+  {
+    "slug": "kth-largest-element-in-an-array",
+    "title": "Kth Largest Element in an Array",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "source": "neetcode/heap/kthLargestElement.py",
+    "module": "assets/problems/kth-largest-element-in-an-array.mjs"
+  },
+  {
+    "slug": "task-scheduler",
+    "title": "Task Scheduler",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "source": "neetcode/heap/taskScheduler.py",
+    "module": "assets/problems/task-scheduler.mjs"
+  },
+  {
+    "slug": "design-twitter",
+    "title": "Design Twitter",
+    "difficulty": "Medium",
+    "category": "Heap",
+    "source": "neetcode/heap/designTwitter.py",
+    "module": "assets/problems/design-twitter.mjs"
+  },
+  {
+    "slug": "find-median-from-data-stream",
+    "title": "Find Median from Data Stream",
+    "difficulty": "Hard",
+    "category": "Heap",
+    "source": "neetcode/heap/medianInStream.py",
+    "module": "assets/problems/find-median-from-data-stream.mjs"
   }
 ]

@@ -83,7 +83,7 @@ export function mountVisualization(root) {
   return mountHeightPlayback(root, {
     id: 'rain-water', kind: 'terrain', initial: [0,1,0,2,1,0,1,3,2,1,2,1],
     description: 'Blue water appears only when a bar’s contribution has been calculated. Choose the reference two-pointer solution or the original prefix/suffix solution to follow the corresponding Python code.',
-    legend: 'Green bars = terrain. Blue = finalized trapped water. Orange = bar being processed. L/R mark the two pointers; i marks the current index in the array passes. Labels above bars show terrain heights.',
+    legend: 'Bars = terrain. Shaded regions above the bars = finalized trapped water. The current bar is highlighted. L/R mark the two pointers; i marks the current index in the array passes. Labels above bars show terrain heights.',
     modes: [{id: 'two-pointers', label: 'Two pointers (reference solution)', steps: pointerSteps}, {id: 'prefix-suffix', label: 'Prefix/suffix arrays (first solution)', steps: prefixSteps}],
     table: waterTable
   });

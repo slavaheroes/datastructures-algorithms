@@ -4,6 +4,7 @@ import {sortingAlgorithms} from './registry.mjs';
 import {sortingSteps} from './steps.mjs';
 import {sortBars} from './view.mjs';
 import {template} from './template.mjs';
+import {mountAlgorithmCode} from '../shared/algorithm-code.mjs';
 
 export function mountSorting(root, {algorithmId} = {}) {
   root.innerHTML = template;
@@ -14,21 +15,29 @@ export function mountSorting(root, {algorithmId} = {}) {
     $('sort-algorithm').value = algorithmId;
     $('sort-algorithm').parentElement.hidden = true;
   }
-  let frames = [], position = 0, timer = null;
+  let frames = [], position = 0, timer = null, codeView;
 
   function pause() {
     if (timer !== null) clearTimeout(timer);
     timer = null;
     $('sort-play').textContent = 'Play';
   }
-  function render() {
+  function announceFrame(frame) {
+    const lines = frame.codeLines?.length ? `Line${frame.codeLines.length > 1 ? 's' : ''} ${frame.codeLines.join(', ')}. ` : '';
+    $('sort-announcement').textContent = `${lines}${frame.operation || ''}. ${frame.message}`;
+  }
+  function render(announce = false) {
     const frame = frames[position];
     $('sort-bars').innerHTML = sortBars(frame);
     $('sort-bars').setAttribute('aria-label', `Array at step ${position}: ${frame.values.join(', ') || 'empty'}`);
-    $('sort-message').textContent = frame.message;
+    const lines = frame.codeLines?.length ? `Line${frame.codeLines.length > 1 ? 's' : ''} ${frame.codeLines.join(', ')} · ` : '';
+    $('sort-message').textContent = `${lines}${frame.message}`;
     $('sort-progress').textContent = `${position} / ${frames.length - 1} steps`;
     $('sort-stats').textContent = `${frame.comparisons} comparisons · ${frame.writes} writes`;
+    codeView.update(frame);
+    $('sort-back').disabled = position === 0;
     $('sort-step').disabled = $('sort-play').disabled = position === frames.length - 1;
+    if (announce) announceFrame(frame);
   }
   function load() {
     const values = numberArray($('sort-input').value, 32);
@@ -39,12 +48,16 @@ export function mountSorting(root, {algorithmId} = {}) {
     position = 0;
     $('sort-name').textContent = algorithm.label.toUpperCase();
     $('sort-explanation').textContent = algorithm.explanation;
-    render();
+    codeView = mountAlgorithmCode($('sort-code'), algorithm.code);
+    render(true);
   }
-  function advance() {
+  function advance(announce = false) {
     if (position < frames.length - 1) position++;
-    render();
-    if (position === frames.length - 1) pause();
+    render(announce);
+    if (position === frames.length - 1) {
+      pause();
+      if (!announce) announceFrame(frames[position]);
+    }
   }
   function tick() {
     advance();
@@ -55,8 +68,9 @@ export function mountSorting(root, {algorithmId} = {}) {
     $('sort-play').textContent = 'Pause';
     timer = setTimeout(tick, 1100 - Number($('sort-speed').value) * 100);
   };
-  $('sort-step').onclick = () => { pause(); advance(); };
-  $('sort-reset').onclick = () => { pause(); position = 0; render(); };
+  $('sort-step').onclick = () => { pause(); advance(true); };
+  $('sort-back').onclick = () => { pause(); position = Math.max(0, position - 1); render(true); };
+  $('sort-reset').onclick = () => { pause(); position = 0; render(true); };
   $('load-sort').onclick = () => attempt(load);
   $('sort-algorithm').onchange = () => { pause(); attempt(load); };
   $('random-sort').onclick = () => {

@@ -1,0 +1,33 @@
+.lesson .binary-range-cells,.lesson .binary-partition-cells { display:flex; align-items:stretch; gap:6px; list-style:none; padding:0; margin:8px 0 18px; width:max-content; }
+.lesson .binary-cell { display:flex; flex-direction:column; align-items:center; justify-content:center; flex:0 0 90px; width:90px; min-height:104px; margin:0; padding:8px 4px; border:1px solid var(--line); border-radius:5px; background:var(--surface); color:var(--ink); }
+.binary-cell strong { font:600 19px monospace; margin:8px 0; }
+.binary-cell .sequence-pointer { font-size:10px; }
+.binary-cell-state { margin-top:6px; font-size:10px; color:var(--muted); }
+.lesson .binary-cell.in-range,.lesson .binary-cell.partition-left { background:var(--accent-soft); border-color:var(--green); }
+.lesson .binary-cell.outside-range { color:var(--muted); border-style:dashed; }
+.lesson .binary-cell.comparison-highlight { outline:2px solid var(--orange); outline-offset:-2px; }
+.lesson .binary-cell.candidate { border-bottom:4px solid var(--green); }
+.lesson .binary-cell.binary-answer { outline:3px solid var(--green); outline-offset:-3px; }
+.lesson .binary-cell.binary-answer .binary-cell-state { color:var(--green); font-weight:700; }
+.binary-partition-row h4 { font-size:14px; font-weight:600; margin:18px 0 10px; }
+.lesson .partition-cut { display:flex; flex-direction:column; align-items:center; justify-content:center; flex:0 0 56px; width:56px; margin:0; font-size:10px; color:var(--green); }
+.partition-cut > span:first-child { font:700 54px monospace; line-height:1.15; }
+.lesson .binary-empty { display:flex; align-items:center; margin:0; padding:12px; color:var(--muted); font-size:13px; }
+.binary-boundary-region { max-width:650px; margin:12px 0; }
+.partition-boundaries { display:block; width:100%; max-width:560px; height:auto; }
+.partition-boundary-box { fill:var(--surface); stroke:var(--line); stroke-width:1.5; }
+.partition-boundaries text { fill:var(--ink); text-anchor:middle; }
+.partition-boundary-label { font:12px system-ui,sans-serif; }
+.partition-boundary-value { font:600 18px monospace; }
+.partition-comparison { stroke-width:2.5; }
+.partition-comparison.passes { stroke:var(--green); }
+.partition-comparison.fails { stroke:var(--orange); stroke-dasharray:5 3; }
+.lesson .partition-checks { list-style:none; padding:0; margin:8px 0; }
+.lesson .partition-checks li { padding:7px 10px; margin:6px 0; border-left:3px solid var(--green); background:var(--accent-soft); font-size:13px; }
+.lesson .partition-checks li.fails { border-left-color:var(--orange); }
+.binary-median-answer { padding:12px; border:2px solid var(--green); background:var(--accent-soft); }
+.binary-median-answer strong { font-size:20px; }
+@media(max-width:700px) {
+  .lesson .binary-cell { flex-basis:82px; width:82px; }
+  .binary-boundary-region { min-width:0; }
+}

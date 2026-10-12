@@ -4,7 +4,7 @@
 .sort-config button { white-space:nowrap; }
 .legend-dot { display:inline-block; width:8px; height:8px; background:var(--orange); border-radius:50%; margin-right:5px; }
 #sort-bars { height:320px; padding:40px 28px 20px; display:flex; gap:8px; align-items:end; overflow:auto; }
-.bar { flex:1; min-width:12px; background:#b4c995; border-radius:3px 3px 0 0; position:relative; text-align:center; }
+.bar { flex:1; min-width:12px; background:var(--diagram-fill); border-radius:3px 3px 0 0; position:relative; text-align:center; }
 .bar.active { background:var(--orange); }
 .bar span { position:absolute; bottom:100%; left:50%; transform:translateX(-50%); font-family:monospace; font-size:12px; padding-bottom:5px; }
 .sort-message { padding:0 22px; min-height:27px; font-size:14px; }

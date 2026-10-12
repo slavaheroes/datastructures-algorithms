@@ -1,0 +1,39 @@
+.trie-lesson-layout { display:grid; grid-template-columns:minmax(200px,.8fr) minmax(0,1.2fr); gap:24px; }
+.trie-lesson-panel { min-width:0; margin:0 0 20px; }
+.trie-lesson-panel h4 { margin:0 0 10px; font-size:12px; color:var(--muted); font-weight:600; }
+.trie-lesson-board { border-collapse:separate; border-spacing:5px; }
+.trie-lesson-board td { width:68px; min-width:58px; height:72px; padding:5px; text-align:center; border:1px solid var(--line); border-radius:5px; background:var(--surface); }
+.trie-lesson-board td strong { display:block; font:600 23px/1.5 monospace; }
+.trie-lesson-board td > span:not(.sr-only) { display:block; font:11px/1.5 monospace; color:var(--muted); white-space:nowrap; }
+.trie-lesson-board td.visited { border-color:var(--green); background:var(--accent-soft); }
+.trie-lesson-board td.visited > span:not(.sr-only) { color:var(--green); font-weight:650; }
+.trie-lesson-board td.attempted { outline:3px solid var(--orange); outline-offset:-3px; }
+.trie-lesson-board td.backtracked { border:2px dashed var(--orange); }
+.trie-lesson-path { font:12px/1.7 monospace; overflow-wrap:anywhere; }
+.trie-lesson-scroll { max-height:440px; border:1px solid var(--line); border-radius:5px; background:var(--bg); }
+.trie-lesson-svg { display:block; width:100%; }
+.trie-lesson-svg text { fill:var(--ink); text-anchor:middle; font:13px monospace; }
+.trie-lesson-svg .trie-lesson-marker { font-size:10px; fill:var(--green); }
+.trie-lesson-edge { stroke:var(--line); stroke-width:2; }
+.trie-lesson-edge.on-path { stroke:var(--green); stroke-width:4; }
+.trie-lesson-node > circle:first-child { fill:var(--surface); stroke:var(--muted); stroke-width:1.5; }
+.trie-lesson-node.on-path > circle:first-child { fill:var(--accent-soft); stroke:var(--green); stroke-width:2; }
+.trie-lesson-node.current > circle:first-child { stroke:var(--orange); stroke-width:3; }
+.trie-lesson-node.found > circle:first-child { fill:var(--accent-soft); }
+.trie-lesson-node .terminal-ring { fill:none; stroke:var(--green); stroke-width:1.5; }
+.trie-lesson-node.found .terminal-ring { stroke-dasharray:4 3; }
+.lesson .trie-lesson-words { display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:0; }
+.lesson .trie-lesson-words li { border:1px solid var(--line); border-radius:5px; padding:6px 10px; margin:0; background:var(--surface); }
+.trie-lesson-words strong { display:block; font:600 14px monospace; }
+.trie-lesson-words span { display:block; color:var(--muted); font-size:11px; }
+.lesson .trie-lesson-words li.matches-prefix { border:2px dashed var(--green); }
+.lesson .trie-lesson-words li.found { border-color:var(--green); background:var(--accent-soft); }
+.lesson .trie-lesson-calls { margin:0; padding-left:22px; font:12px/1.7 monospace; overflow-wrap:anywhere; }
+.trie-lesson-editor { flex:1 1 100%; border:1px solid var(--line); border-radius:5px; padding:12px 16px; margin:6px 0 0; min-width:0; }
+.trie-lesson-editor legend { font-size:13px; font-weight:600; padding:0 5px; }
+.trie-lesson-editor p { margin-top:0; }
+.trie-lesson-edit-grid { display:grid; gap:8px; }
+.trie-lesson-edit-grid label { margin:0; }
+.trie-lesson-edit-grid label > span { display:block; font:10px monospace; text-align:center; color:var(--muted); margin-bottom:4px; }
+.trie-lesson-edit-grid input { text-align:center; font:600 18px monospace; }
+@media (max-width:900px) { .trie-lesson-layout { grid-template-columns:1fr; gap:0; } }
