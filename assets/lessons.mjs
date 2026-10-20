@@ -8,6 +8,13 @@ let lessons = [], indexPromise, request = 0, dispose;
 let topicsHidden = false;
 const modules = new Map();
 const categoryOpen = new Map();
+const assetVersion = new URL(import.meta.url).searchParams.get('v');
+
+function resourceURL(path) {
+  const url = new URL(path, document.baseURI);
+  if (assetVersion) url.searchParams.set('v', assetVersion);
+  return url;
+}
 
 function topicVisibility(hasLesson) {
   const visible = !hasLesson || !topicsHidden;
@@ -21,7 +28,7 @@ topicToggle.onclick = () => { topicsHidden = !topicsHidden; topicVisibility(true
 
 function loadIndex() {
   if (!indexPromise) {
-    indexPromise = fetch('assets/problems.json').then(async response => {
+    indexPromise = fetch(resourceURL('assets/problems.json'), {cache: 'no-cache'}).then(async response => {
       if (!response.ok) throw Error('Could not load lesson index.');
       lessons = await response.json();
     }).catch(error => { indexPromise = null; throw error; });
@@ -73,7 +80,7 @@ export async function showLesson(slug) {
       return;
     }
     if (!modules.has(entry.module)) {
-      modules.set(entry.module, import(new URL(entry.module, document.baseURI).href).catch(error => { modules.delete(entry.module); throw error; }));
+      modules.set(entry.module, import(resourceURL(entry.module).href).catch(error => { modules.delete(entry.module); throw error; }));
     }
     const module = await modules.get(entry.module);
     if (current !== request) return;
@@ -85,7 +92,7 @@ export async function showLesson(slug) {
       ${lesson.proof ? `<details class="lesson-section" open><summary>${escape(lesson.proof.title)}</summary>${lesson.proof.paragraphs.map(paragraph => `<p>${escape(paragraph)}</p>`).join('')}</details>` : ''}
       ${module.mountVisualization ? '<details class="lesson-section" id="lesson-visualization"><summary>Visualization</summary><div id="lesson-visualization-content"></div></details>' : ''}
       ${lesson.treeVisualizer ? '<p class="tree-visualizer-link"><a href="#data-structures/trees">Open the Trees visualizer</a> to build the example tree and inspect its structure. Use a level-order array with null for missing children.</p>' : ''}
-      <details class="lesson-section" id="python-section"><summary>Python solution</summary><div id="python-content"><p>Loading Python source…</p></div><a class="text-link" href="${escape(lesson.source)}" download>Download Python solution ↓</a></details>
+      <details class="lesson-section" id="python-section"><summary>Python solution</summary><div id="python-content"><p>Loading Python source…</p></div><a class="text-link" href="${escape(resourceURL(lesson.source).href)}" download>Download Python solution ↓</a></details>
       <div class="complexity"><h3>Time &amp; space</h3><p>${escape(lesson.complexity)}</p></div><details class="lesson-section"><summary>Notes</summary><p>${escape(lesson.pitfall)}</p></details>`;
     const pythonSection = article.querySelector('#python-section');
     const pythonContent = article.querySelector('#python-content');
@@ -95,7 +102,7 @@ export async function showLesson(slug) {
       loading = true;
       pythonContent.innerHTML = '<p>Loading Python source…</p>';
       try {
-        const response = await fetch(new URL(lesson.source, document.baseURI));
+        const response = await fetch(resourceURL(lesson.source));
         if (!response.ok) throw Error('Could not load Python source.');
         const code = await response.text();
         if (current !== request) return;

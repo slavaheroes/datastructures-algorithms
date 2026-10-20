@@ -25,6 +25,8 @@ Open [localhost:8000](http://localhost:8000). Serve over HTTP, rather than openi
 
 The local preview disables browser caching so rebuilt scripts and styles load after a refresh. If an already-open tab still uses an earlier preview, press Ctrl+F5 once to reload all assets. Build again after editing website files, since the server serves `_site/`.
 
+Each build adds a content-based version query to the staged scripts and styles, including nested imports. The lesson loader uses the same version for its catalog, problem modules, and Python source URLs. This prevents a new page from reusing earlier deployment assets while keeping the original source paths and Python contents intact. GitHub Pages can cache the HTML itself for ten minutes; after an update, use Cmd+Shift+R in Chrome on Mac or Ctrl+Shift+R on Windows/Linux to reload an already-open page. Clearing cookies does not clear cached files or the current tab’s loaded lesson list.
+
 ## Pages and visualizer modules
 
 `#data-structures` opens an overview with links to Trees and Graphs. `#data-structures/trees` and `#data-structures/graphs` each show a separate workspace. `#algorithms` lists Bubble, Merge, and Quick Sort, plus Heap, with individual routes at `#algorithms/bubble-sort`, `#algorithms/merge-sort`, `#algorithms/quick-sort`, and `#algorithms/heap`. Previous `#structures`, `#sorting`, and `#algorithms/sorting` links redirect to the corresponding tools.
