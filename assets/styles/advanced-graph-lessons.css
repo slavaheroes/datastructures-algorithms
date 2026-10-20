@@ -1,0 +1,20 @@
+.ag-canvas { border:1px solid var(--line); border-radius:5px; background:var(--bg); margin-bottom:18px; }
+.ag-svg { display:block; width:100%; min-width:520px; max-height:520px; }
+.ag-svg text { text-anchor:middle; fill:var(--ink); font:12px monospace; }
+.ag-svg marker path { fill:var(--muted); }
+.ag-edge { fill:none; stroke:var(--muted); stroke-width:1.4; }
+.ag-edge.consumed { stroke-dasharray:5 5; opacity:.45; }
+.ag-edge.chosen { stroke:var(--green); stroke-width:3; }
+.ag-edge.current { stroke:var(--orange); stroke-width:4; opacity:1; }
+.ag-svg .ag-edge-label { paint-order:stroke; stroke:var(--bg); stroke-width:5px; stroke-linejoin:round; font-size:11px; }
+.ag-svg .ag-edge-label.current { fill:var(--orange); font-weight:700; }
+.ag-node circle { fill:var(--surface); stroke:var(--muted); stroke-width:1.5; }
+.ag-node.done circle { fill:var(--accent-soft); stroke:var(--green); stroke-width:2; }
+.ag-node.frontier circle { stroke:var(--green); stroke-dasharray:4 3; stroke-width:2; }
+.ag-node.current circle { stroke:var(--orange); stroke-width:3.5; stroke-dasharray:none; }
+.ag-node > text:first-of-type { font-weight:650; }
+.ag-svg .ag-node-meta { font-size:10px; paint-order:stroke; stroke:var(--bg); stroke-width:4px; }
+.ag-axis { fill:none; stroke:var(--line); stroke-width:1.5; }
+.ag-svg .ag-axis-label { fill:var(--muted); font-size:11px; }
+.ag-state { margin:14px 0; }
+.ag-state th,.ag-state td { text-align:left; white-space:nowrap; }

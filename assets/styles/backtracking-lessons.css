@@ -1,0 +1,31 @@
+.backtrack-layout { display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:20px; }
+.backtrack-panel { min-width:0; margin-bottom:20px; }
+.backtrack-panel h4 { font-size:12px; color:var(--muted); margin:0 0 10px; }
+.lesson .backtrack-candidates,.lesson .backtrack-results,.lesson .backtrack-boards { display:flex; flex-wrap:wrap; gap:8px; list-style:none; padding:0; margin:0 0 14px; }
+.lesson .backtrack-candidates li { border:1px solid var(--line); border-radius:5px; padding:7px 12px; margin:0; text-align:center; }
+.backtrack-candidates span { display:block; color:var(--muted); font:11px/1.5 monospace; }
+.backtrack-candidates strong { font:600 22px/1.7 monospace; }
+.lesson .backtrack-candidates li.current { border-color:var(--orange); background:var(--current-bg); }
+.backtrack-branch { max-height:400px; border:1px solid var(--line); border-radius:5px; background:var(--bg); }
+.backtrack-svg { display:block; width:100%; }
+.backtrack-edge { stroke:var(--green); stroke-width:2; }
+.backtrack-node circle { fill:var(--surface); stroke:var(--green); stroke-width:1.5; }
+.backtrack-node text { fill:var(--ink); text-anchor:middle; font:14px monospace; }
+.backtrack-node .backtrack-node-detail { font-size:12px; text-anchor:start; }
+.backtrack-node.current circle { stroke:var(--orange); stroke-width:3; fill:var(--current-bg); }
+.backtrack-node.pruned circle { stroke-dasharray:4 3; }
+.backtrack-node.solution circle { stroke:var(--green); stroke-width:6; fill:var(--accent-soft); }
+.lesson .backtrack-results li { padding:5px 10px; border:1px solid var(--green); border-radius:5px; background:var(--accent-soft); margin:0; }
+.backtrack-board { border-spacing:3px; }
+.backtrack-board td { min-width:42px; width:48px; height:48px; text-align:center; border:1px solid var(--line); border-radius:3px; font:24px monospace; }
+.backtrack-board thead td { height:22px; border:0; }
+.backtrack-board th { font:11px monospace; color:var(--muted); padding:4px; }
+.backtrack-board td.alternate { background:var(--bg); }
+.backtrack-board td.has-queen { background:var(--accent-soft); color:var(--green); font-weight:700; }
+.backtrack-board td.attempted { outline:3px solid var(--orange); outline-offset:-3px; }
+.backtrack-board td.rejected,.backtrack-board td.undo { outline-style:dashed; }
+.backtrack-placements { font:12px/1.8 monospace; }
+.lesson .backtrack-boards li { margin:0; padding:10px 14px; border:1px solid var(--line); border-radius:5px; }
+.backtrack-boards span { color:var(--muted); font-size:11px; }
+.backtrack-boards pre { margin:5px 0 0; letter-spacing:5px; color:var(--green); }
+@media(max-width:800px) { .backtrack-layout { grid-template-columns:1fr; gap:0; } }

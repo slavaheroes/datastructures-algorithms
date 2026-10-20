@@ -558,5 +558,341 @@
     "category": "Heap",
     "source": "neetcode/heap/medianInStream.py",
     "module": "assets/problems/find-median-from-data-stream.mjs"
+  },
+  {
+    "slug": "subsets",
+    "title": "Subsets",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/subsets.py",
+    "module": "assets/problems/subsets.mjs"
+  },
+  {
+    "slug": "combination-sum",
+    "title": "Combination Sum",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/combinationSum.py",
+    "module": "assets/problems/combination-sum.mjs"
+  },
+  {
+    "slug": "permutations",
+    "title": "Permutations",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/permutations.py",
+    "module": "assets/problems/permutations.mjs"
+  },
+  {
+    "slug": "subsets-ii",
+    "title": "Subsets II",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/subsets2.py",
+    "module": "assets/problems/subsets-ii.mjs"
+  },
+  {
+    "slug": "combination-sum-ii",
+    "title": "Combination Sum II",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/combinationSum2.py",
+    "module": "assets/problems/combination-sum-ii.mjs"
+  },
+  {
+    "slug": "word-search",
+    "title": "Word Search",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/wordSearch.py",
+    "module": "assets/problems/word-search.mjs"
+  },
+  {
+    "slug": "palindrome-partitioning",
+    "title": "Palindrome Partitioning",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/palindromePartitioning.py",
+    "module": "assets/problems/palindrome-partitioning.mjs"
+  },
+  {
+    "slug": "letter-combinations-of-a-phone-number",
+    "title": "Letter Combinations of a Phone Number",
+    "difficulty": "Medium",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/phoneLetterCombinations.py",
+    "module": "assets/problems/letter-combinations-of-a-phone-number.mjs"
+  },
+  {
+    "slug": "n-queens",
+    "title": "N-Queens",
+    "difficulty": "Hard",
+    "category": "Backtracking",
+    "source": "neetcode/backtracking/NQueens.py",
+    "module": "assets/problems/n-queens.mjs"
+  },
+  {
+    "slug": "number-of-islands",
+    "title": "Number of Islands",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/numIslands.py",
+    "module": "assets/problems/number-of-islands.mjs"
+  },
+  {
+    "slug": "max-area-of-island",
+    "title": "Max Area of Island",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/maxAreaOfIslands.py",
+    "module": "assets/problems/max-area-of-island.mjs"
+  },
+  {
+    "slug": "clone-graph",
+    "title": "Clone Graph",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/cloneGraph.py",
+    "module": "assets/problems/clone-graph.mjs"
+  },
+  {
+    "slug": "islands-and-treasure",
+    "title": "Islands and Treasure",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/IslandsAndTreasure.py",
+    "module": "assets/problems/islands-and-treasure.mjs"
+  },
+  {
+    "slug": "pacific-atlantic-water-flow",
+    "title": "Pacific Atlantic Water Flow",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/pacificAtlanticWaterFlow.py",
+    "module": "assets/problems/pacific-atlantic-water-flow.mjs"
+  },
+  {
+    "slug": "surrounded-regions",
+    "title": "Surrounded Regions",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/surroundedRegions.py",
+    "module": "assets/problems/surrounded-regions.mjs"
+  },
+  {
+    "slug": "rotting-oranges",
+    "title": "Rotting Oranges",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/rottingOranges.py",
+    "module": "assets/problems/rotting-oranges.mjs"
+  },
+  {
+    "slug": "course-schedule",
+    "title": "Course Schedule",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/courseSchedule.py",
+    "module": "assets/problems/course-schedule.mjs"
+  },
+  {
+    "slug": "course-schedule-ii",
+    "title": "Course Schedule II",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/courseSchedule2.py",
+    "module": "assets/problems/course-schedule-ii.mjs"
+  },
+  {
+    "slug": "graph-valid-tree",
+    "title": "Graph Valid Tree",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/GraphValidTree.py",
+    "module": "assets/problems/graph-valid-tree.mjs"
+  },
+  {
+    "slug": "number-of-connected-components",
+    "title": "Number of Connected Components in an Undirected Graph",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/countConnectedComponents.py",
+    "module": "assets/problems/number-of-connected-components.mjs"
+  },
+  {
+    "slug": "redundant-connection",
+    "title": "Redundant Connection",
+    "difficulty": "Medium",
+    "category": "Graphs",
+    "source": "neetcode/graphs/redundantConnection.py",
+    "module": "assets/problems/redundant-connection.mjs"
+  },
+  {
+    "slug": "word-ladder",
+    "title": "Word Ladder",
+    "difficulty": "Hard",
+    "category": "Graphs",
+    "source": "neetcode/graphs/wordLadder.py",
+    "module": "assets/problems/word-ladder.mjs"
+  },
+  {
+    "slug": "reconstruct-itinerary",
+    "title": "Reconstruct Itinerary",
+    "difficulty": "Hard",
+    "category": "Advanced Graphs",
+    "source": "neetcode/advanced-graphs/findItinerary.py",
+    "module": "assets/problems/reconstruct-itinerary.mjs"
+  },
+  {
+    "slug": "min-cost-to-connect-all-points",
+    "title": "Min Cost to Connect All Points",
+    "difficulty": "Medium",
+    "category": "Advanced Graphs",
+    "source": "neetcode/advanced-graphs/minCostConnectPoints.py",
+    "module": "assets/problems/min-cost-to-connect-all-points.mjs"
+  },
+  {
+    "slug": "network-delay-time",
+    "title": "Network Delay Time",
+    "difficulty": "Medium",
+    "category": "Advanced Graphs",
+    "source": "neetcode/advanced-graphs/networkDelayTime.py",
+    "module": "assets/problems/network-delay-time.mjs"
+  },
+  {
+    "slug": "swim-in-rising-water",
+    "title": "Swim in Rising Water",
+    "difficulty": "Hard",
+    "category": "Advanced Graphs",
+    "source": "neetcode/advanced-graphs/swimInRisingWater.py",
+    "module": "assets/problems/swim-in-rising-water.mjs"
+  },
+  {
+    "slug": "alien-dictionary",
+    "title": "Alien Dictionary",
+    "difficulty": "Hard",
+    "category": "Advanced Graphs",
+    "source": "neetcode/advanced-graphs/alienDictionary.py",
+    "module": "assets/problems/alien-dictionary.mjs"
+  },
+  {
+    "slug": "cheapest-flights-within-k-stops",
+    "title": "Cheapest Flights Within K Stops",
+    "difficulty": "Medium",
+    "category": "Advanced Graphs",
+    "source": "neetcode/advanced-graphs/cheapestFlightsPrice.py",
+    "module": "assets/problems/cheapest-flights-within-k-stops.mjs"
+  },
+  {
+    "slug": "insert-interval",
+    "title": "Insert Interval",
+    "difficulty": "Medium",
+    "category": "Intervals",
+    "source": "neetcode/intervals/insertInterval.py",
+    "module": "assets/problems/insert-interval.mjs"
+  },
+  {
+    "slug": "merge-intervals",
+    "title": "Merge Intervals",
+    "difficulty": "Medium",
+    "category": "Intervals",
+    "source": "neetcode/intervals/mergeIntervals.py",
+    "module": "assets/problems/merge-intervals.mjs"
+  },
+  {
+    "slug": "non-overlapping-intervals",
+    "title": "Non-overlapping Intervals",
+    "difficulty": "Medium",
+    "category": "Intervals",
+    "source": "neetcode/intervals/nonOverlapingIntervals.py",
+    "module": "assets/problems/non-overlapping-intervals.mjs"
+  },
+  {
+    "slug": "meeting-rooms",
+    "title": "Meeting Rooms",
+    "difficulty": "Easy",
+    "category": "Intervals",
+    "source": "neetcode/intervals/meetingRooms.py",
+    "module": "assets/problems/meeting-rooms.mjs"
+  },
+  {
+    "slug": "meeting-rooms-ii",
+    "title": "Meeting Rooms II",
+    "difficulty": "Medium",
+    "category": "Intervals",
+    "source": "neetcode/intervals/minMeetingRooms.py",
+    "module": "assets/problems/meeting-rooms-ii.mjs"
+  },
+  {
+    "slug": "minimum-interval-to-include-each-query",
+    "title": "Minimum Interval to Include Each Query",
+    "difficulty": "Hard",
+    "category": "Intervals",
+    "source": "neetcode/intervals/minInterval.py",
+    "module": "assets/problems/minimum-interval-to-include-each-query.mjs"
+  },
+  {
+    "slug": "maximum-subarray",
+    "title": "Maximum Subarray",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "source": "neetcode/greedy/maxSubArray.py",
+    "module": "assets/problems/maximum-subarray.mjs"
+  },
+  {
+    "slug": "jump-game",
+    "title": "Jump Game",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "source": "neetcode/greedy/canJump.py",
+    "module": "assets/problems/jump-game.mjs"
+  },
+  {
+    "slug": "jump-game-ii",
+    "title": "Jump Game II",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "source": "neetcode/greedy/jump2.py",
+    "module": "assets/problems/jump-game-ii.mjs"
+  },
+  {
+    "slug": "gas-station",
+    "title": "Gas Station",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "source": "neetcode/greedy/canCompleteCircuit.py",
+    "module": "assets/problems/gas-station.mjs"
+  },
+  {
+    "slug": "hand-of-straights",
+    "title": "Hand of Straights",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "source": "neetcode/greedy/handOfStraights.py",
+    "module": "assets/problems/hand-of-straights.mjs"
+  },
+  {
+    "slug": "merge-triplets-to-form-target-triplet",
+    "title": "Merge Triplets to Form Target Triplet",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "source": "neetcode/greedy/mergeTriplets.py",
+    "module": "assets/problems/merge-triplets-to-form-target-triplet.mjs"
+  },
+  {
+    "slug": "partition-labels",
+    "title": "Partition Labels",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "source": "neetcode/greedy/partitionLabels.py",
+    "module": "assets/problems/partition-labels.mjs"
+  },
+  {
+    "slug": "valid-parenthesis-string",
+    "title": "Valid Parenthesis String",
+    "difficulty": "Medium",
+    "category": "Greedy",
+    "source": "neetcode/greedy/validParenthesisString.py",
+    "module": "assets/problems/valid-parenthesis-string.mjs"
   }
 ]

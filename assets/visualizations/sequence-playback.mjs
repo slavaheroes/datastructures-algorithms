@@ -14,7 +14,7 @@ export function mountSequencePlayback(root, config) {
   const find = role => root.querySelector(`[data-role="${role}"]`);
   const button = action => root.querySelector(`[data-action="${action}"]`);
   const form = root.querySelector('form'), disclosure = root.closest('details');
-  let input, frames = [], position = 0, timer = null;
+  let input, frames = [], position = 0, timer = null, activeMode = '0';
   const mode = () => config.modes[Number(find('mode')?.value || 0)];
   function pause() { clearTimeout(timer); timer = null; button('play').textContent = 'Play'; }
   function render(announce = false) {
@@ -47,6 +47,7 @@ export function mountSequencePlayback(root, config) {
       const candidate = config.parse(Object.fromEntries(new FormData(form)));
       const nextFrames = mode().trace(candidate);
       input = candidate; frames = nextFrames; position = 0;
+      activeMode = find('mode')?.value || '0';
       find('error').textContent = '';
       render(true);
     } catch (error) { find('error').textContent = error.message; }
@@ -65,7 +66,18 @@ export function mountSequencePlayback(root, config) {
     if (timer !== null) { pause(); return; }
     button('play').textContent = 'Pause'; timer = setTimeout(tick, Number(find('speed').value));
   };
-  if (find('mode')) find('mode').onchange = () => { pause(); frames = mode().trace(input); position = 0; render(true); };
+  if (find('mode')) find('mode').onchange = () => {
+    pause();
+    try {
+      const nextFrames = mode().trace(input);
+      frames = nextFrames; position = 0; activeMode = find('mode').value;
+      find('error').textContent = '';
+      render(true);
+    } catch (error) {
+      find('mode').value = activeMode;
+      find('error').textContent = error.message;
+    }
+  };
   const onToggle = () => { if (!disclosure.open) pause(); };
   const onVisibility = () => { if (document.hidden) pause(); };
   disclosure?.addEventListener('toggle', onToggle);

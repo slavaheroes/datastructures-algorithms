@@ -1,0 +1,9 @@
+export default {
+  pattern: 'Dijkstra with a minimum heap and finalized nodes',
+  problem: 'Send a signal from node k along directed weighted edges. Return the earliest time when all n nodes have received it, or −1 if some node is unreachable.',
+  example: 'times = [[2,1,1],[2,3,1],[3,4,1]], n = 4, k = 2\nOutput: 2\nNodes 1 and 3 receive the signal at time 1; node 4 at time 2.',
+  insight: 'The heap contains possible arrivals (time, node). With nonnegative edge weights, the first popped arrival at a node has its shortest travel time. Finalize that node once, then offer arrivals through all its outgoing edges. The largest finalized arrival time is the time needed to reach every node.',
+  steps: ['Group each (destination, edgeTime) by departure node. Push (0, k), set visited to empty, and total_time to zero.', 'Pop the earliest arrival. If its node was finalized earlier, skip this duplicate heap entry.', 'Otherwise finalize the node and update total_time with the larger of its current value and this arrival time.', 'Push an arrival t + edgeTime for every outgoing edge. This source also pushes edges to already visited nodes; those entries are skipped when popped.', 'When the heap is empty, return total_time if visited contains n nodes, otherwise return −1.'],
+  complexity: 'Each node is expanded once and each edge is pushed at most once during that expansion. O(V + E log(E + 1)) time and O(V + E) auxiliary space, including adjacency lists and duplicate heap entries. For a simple graph this is commonly written O((V + E) log(V + 1)).',
+  pitfall: 'Finalize a node when its earliest arrival is popped, not when a candidate is first pushed. Edges are directed, so reachability need not be symmetric. The answer is the maximum of all shortest arrival times, not the sum of edge costs. The saved Python source relies on defaultdict and heapq supplied by the problem environment.'
+};

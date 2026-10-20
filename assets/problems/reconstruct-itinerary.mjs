@@ -1,0 +1,13 @@
+import {mountItinerary} from '../visualizations/advanced-graph-lessons.mjs';
+
+export const mountVisualization = mountItinerary;
+
+export default {
+  pattern: 'Euler trail with Hierholzer, or ticket backtracking',
+  problem: 'Use every directed flight ticket exactly once to reconstruct a trip starting at JFK. Among valid trips, return the lexicographically smallest airport sequence. Duplicate tickets are separate edges.',
+  example: 'tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]\nOutput: ["JFK","ATL","JFK","SFO","ATL","SFO"]',
+  insight: 'The first version reverse-sorts the tickets so popping an adjacency list chooses its smallest remaining destination. It walks unused edges with a stack, but appends an airport to res only after that airport has no outgoing tickets left. Reversing this finishing order joins the route pieces into an Euler trail. The second version tries lexicographically ordered tickets with DFS and undoes any choice that cannot consume every ticket.',
+  steps: ['Hierholzer: reverse-sort tickets, group destinations by departure, and start stack = ["JFK"].', 'If the top airport has an outgoing ticket, pop that destination and push it onto the stack. That particular ticket is now consumed.', 'If no outgoing ticket remains, pop the airport into res. Continue until the stack is empty, then return res[::-1].', 'Backtracking version: sort tickets forward and store each destination with a used flag. Start res at JFK, mark one unused outgoing ticket, append its destination, and recurse.', 'A route of E + 1 airports uses all E tickets and succeeds. On failure, clear the ticket flag and remove the appended airport before trying the next choice. Duplicate tickets keep separate flags.'],
+  complexity: 'For E tickets and V airports, Hierholzer takes O(E log(E + 1)) time for sorting plus O(E + V) traversal time, and O(E + V) auxiliary space. The initial DFS version can explore factorially many ticket orderings: O(E · E!) is a safe loose time bound including adjacency scans. Its adjacency lists, route, and recursion use O(E + V) space. The source comments claiming E·V for that brute-force version understate its worst-case search.',
+  pitfall: 'This is an edge traversal: revisiting an airport is allowed, while reusing a ticket is not. Finishing order is reversed only in Hierholzer. Both stored versions assume the promised valid itinerary exists; the interactive input checks that precondition. Both sort the input ticket list in place. Reconstruct Flight Path is the same lesson under the standard title Reconstruct Itinerary.'
+};

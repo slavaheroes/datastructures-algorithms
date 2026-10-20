@@ -1,0 +1,11 @@
+import {mountWordLadder} from '../visualizations/graph-lessons.mjs';
+export const mountVisualization = mountWordLadder;
+export default {
+  pattern: 'BFS through one-letter word changes',
+  problem: 'Return the number of words in the shortest sequence from beginWord to endWord, changing exactly one lowercase letter at a time. Every word after beginWord must occur in wordList. Return 0 if no sequence exists.',
+  example: 'beginWord = "hit", endWord = "cog"\nwordList = ["hot","dot","dog","lot","log","cog"]\nShortest sequence: hit → hot → dot → dog → cog\nOutput: 5',
+  insight: 'Words are vertices and a one-letter change is an unweighted edge. BFS visits shorter transformation sequences first, so the first time the end word is popped gives the minimum number of words.',
+  steps: ['Dictionary-scan version: enqueue (beginWord, 1), then pop a word and return its distance if it equals endWord.', 'Scan unvisited word-list indices. Compare characters position by position; if exactly one differs, mark that index visited and enqueue the candidate with distance + 1.', 'Reference version: return 0 immediately when endWord is absent from wordList, and keep the candidates in a set.', 'For each popped word, try every lowercase replacement at every position except the original character. Enqueue a generated candidate in the set and remove it immediately.', 'If the queue empties without popping endWord, return 0.'],
+  complexity: 'Let N be the dictionary size and M the word length. Dictionary scans take O(N²M) time and O(N) auxiliary space: queue entries reference existing input strings, and visited stores indices. The reference constructs and hashes up to 26M strings of length M per popped word: O(26NM²), usually written O(NM²), time. Its generated queue strings and candidate construction use O((N + 1)M) auxiliary space, excluding the input dictionary.',
+  pitfall: 'Both versions assume equal-length lowercase words. The first marks dictionary indices, while the second removes strings. beginWord is not pre-marked or removed, so it can be enqueued again if it is in the dictionary. For beginWord = endWord absent from wordList, the first version returns 1 and the reference returns 0; standard problem inputs use distinct begin and end words.'
+};

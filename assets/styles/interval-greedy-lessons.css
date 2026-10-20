@@ -1,0 +1,31 @@
+.ig-panel { border:1px solid var(--line); border-radius:6px; padding:14px; margin:12px 0; min-width:0; }
+.ig-panel h4 { margin:0 0 12px; font-size:14px; }
+.ig-timeline { display:block; width:100%; }
+.ig-timeline text { fill:var(--ink); text-anchor:middle; font:11px monospace; }
+.ig-timeline .ig-row-label { text-anchor:start; }
+.ig-interval line { stroke:var(--muted); stroke-width:8; opacity:.55; }
+.ig-interval circle { fill:var(--muted); }
+.ig-interval.kept line,.ig-interval.active line,.ig-interval.inserted line { stroke:var(--green); opacity:1; }
+.ig-interval.kept circle,.ig-interval.active circle,.ig-interval.inserted circle { fill:var(--green); }
+.ig-interval.removed line { stroke-dasharray:5 4; opacity:.35; }
+.ig-interval.current line { stroke:var(--orange); opacity:1; }
+.ig-cursor line { stroke:var(--orange); stroke-width:2; stroke-dasharray:4 3; }
+.ig-cursor text { fill:var(--orange); font-weight:700; }
+.lesson .ig-chips { display:flex; flex-wrap:wrap; gap:7px; list-style:none; padding:0; margin:8px 0; }
+.lesson .ig-chips li { display:flex; flex-direction:column; gap:5px; padding:8px 12px; margin:0; border:1px solid var(--line); border-radius:4px; font:12px monospace; }
+.ig-chips .current { border-color:var(--orange)!important; outline:2px solid var(--orange); outline-offset:-2px; }
+.ig-cells .ig-frontier { background:var(--accent-soft); border-color:var(--green)!important; }
+.ig-cells .ig-current { outline:2px solid var(--orange); outline-offset:-2px; }
+.ig-cells .ig-complete { border-bottom:5px solid var(--green)!important; }
+.ig-cells .ig-rejected { border-bottom:5px solid var(--orange)!important; }
+.ig-cells .ig-partition { border-right:5px solid var(--green)!important; }
+.ig-cells .ig-matched { background:var(--accent-soft); }
+.ig-cells .ig-open { border-bottom:4px solid var(--green)!important; }
+.ig-cells .ig-star { border-bottom:4px dashed var(--orange)!important; }
+.ig-cell-note { white-space:nowrap; font:10px monospace; color:var(--muted); }
+.ig-balance-svg { width:100%; display:block; }
+.ig-balance-svg text { fill:var(--ink); font:11px monospace; text-anchor:middle; }
+.ig-balance-band { fill:var(--accent-soft); stroke:var(--green); stroke-width:2; }
+.ig-balance-axis { stroke:var(--line); stroke-width:2; }
+.ig-balance-tick { stroke:var(--muted); }
+.ig-balance-point { fill:var(--orange); }

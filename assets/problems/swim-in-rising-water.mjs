@@ -1,0 +1,9 @@
+export default {
+  pattern: 'Dijkstra on the maximum elevation along a path',
+  problem: 'Move from the top-left to the bottom-right cell of a square elevation grid. You may move up, down, left, or right when the water level reaches both cells. Return the minimum water level needed for a complete path.',
+  example: 'grid = [[0,2],[1,3]]\nOutput: 3\nEvery route reaches the destination at elevation 3, so time 3 is necessary and sufficient.',
+  insight: 'A path’s required time is its highest elevation. From a heap state (time, row, column), reaching a neighbor requires max(time, neighborElevation). Popping the smallest required time explores the easiest frontier first. When the destination is popped, that time is the best possible answer.',
+  steps: ['Push (grid[0][0], 0, 0) and mark the start visited immediately.', 'Pop the cell with the smallest required water level. Return its level if it is the bottom-right cell.', 'Inspect neighbors in the stored order: down, up, right, left. Ignore coordinates outside the square grid and cells already visited.', 'Mark each new neighbor visited when adding it to the heap, and push max(currentTime, its elevation) with its coordinates.', 'Continue until the destination is popped. For a nonempty square grid it is reachable when the water is sufficiently high.'],
+  complexity: 'For an n × n grid there are n² cells and at most four edges per cell. Each cell enters the heap once, giving O(n² log(n + 1)) time and O(n²) auxiliary space for the heap and visited set.',
+  pitfall: 'The path cost is a maximum elevation, not a sum of elevations or an elapsed step count. This source marks a cell visited when pushing it. That works for this particular maximum-elevation transition: a later-popped predecessor cannot offer a smaller level to that same cell. This shortcut does not apply to ordinary arbitrary weighted Dijkstra graphs. The source assumes a nonempty square grid.'
+};
