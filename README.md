@@ -1,6 +1,6 @@
 # Data structures and algorithms
 
-A personal study site with data structure visualizations, sorting and heap operations, and NeetCode Python explanations. Hosted on GitHub Pages.
+A personal study site with data structure visualizations, sorting, heaps, graph algorithms, and NeetCode Python explanations. Hosted on GitHub Pages.
 
 ## Environment
 
@@ -29,7 +29,7 @@ Each build adds a content-based version query to the staged scripts and styles, 
 
 ## Pages and visualizer modules
 
-`#data-structures` opens an overview with links to Trees and Graphs. `#data-structures/trees` and `#data-structures/graphs` each show a separate workspace. `#algorithms` lists Bubble, Merge, and Quick Sort, plus Heap, with individual routes at `#algorithms/bubble-sort`, `#algorithms/merge-sort`, `#algorithms/quick-sort`, and `#algorithms/heap`. Previous `#structures`, `#sorting`, and `#algorithms/sorting` links redirect to the corresponding tools.
+`#data-structures` opens an overview with links to Trees, Graphs, and Union Find. Each has a separate workspace at `#data-structures/trees`, `#data-structures/graphs`, and `#data-structures/union-find`. `#algorithms` lists Bubble, Merge, and Quick Sort, Heap, and eight graph algorithm workspaces. Sorting and Heap retain their routes at `#algorithms/bubble-sort`, `#algorithms/merge-sort`, `#algorithms/quick-sort`, and `#algorithms/heap`. Previous `#structures`, `#sorting`, and `#algorithms/sorting` links redirect to the corresponding tools.
 
 `assets/app.mjs` handles routing and loads page modules on demand. `assets/pages/data-structures.mjs` and `assets/pages/algorithms.mjs` list their sections, while `assets/pages/sections.mjs` builds the common page layout. Each tool mounts on its first visit; only the selected tool is attached to the page. Visualizers keep their state when switching tools or pages, and playback pauses when leaving a tool.
 
@@ -44,6 +44,23 @@ Heap modules live in `assets/heap/`. The Heap workspace shows a complete binary 
 Every Algorithms workspace includes Python code with numbered lines, the current operation, and variable values for the selected playback step. The diagram and code advance together with Play, Step, Back, and Reset. Code appears beside the diagram on wide screens and below it on narrow screens; its own scroll area follows the active line. Sorting code lives with each sorting algorithm, and heap code in `assets/heap/code.mjs` follows the selected operation and min/max mode. `assets/shared/algorithm-code.mjs` renders the shared panel. The Python listings describe the visualized implementations; heap sifts remain a teaching implementation rather than the exact internal moves of Python’s heapq.
 
 The code panel uses Python syntax colors and wraps long statements by default; Wrap lines switches to the original horizontal layout. Array values and recursion stacks occupy the full state area so their contents remain readable. Active line numbers stay tied to the source statements when a statement wraps across multiple display rows.
+
+## Graph algorithms
+
+Algorithms includes eight standalone workspaces, each with an explanation, ordered steps, complexity, editable examples, and Python code synchronized with the diagram and state table:
+
+- `#algorithms/dfs-cycle-detection`: DFS for directed or undirected cycle detection, including the active recursion path, finished nodes, and parent-edge tracking.
+- `#algorithms/multi-source-bfs`: simultaneous sources, enqueue-time discovery, queue order, and nearest-source distances.
+- `#algorithms/kahn-topological-sort`: indegrees, the ready queue, dependency ordering, and nodes blocked by a cycle.
+- `#algorithms/dijkstra`: nonnegative weighted shortest paths, tentative and finalized distances, predecessor edges, and stale priority-queue entries.
+- `#algorithms/bellman-ford`: repeated edge relaxation, early stopping, negative edges, and reachable negative-cycle detection. An unreachable negative cycle does not invalidate the source's result.
+- `#algorithms/prim`: an undirected minimum spanning tree, its candidate edges, and total weight. Disconnected input reports that no spanning tree exists.
+- `#algorithms/union-find`: union by size, recursive path compression, parent-pointer forests, component sizes, and redundant connections. The same tool is also available under Data structures.
+- `#algorithms/hierholzer`: directed Eulerian trails, unused edges, the traversal stack, and the reverse route. Degree, start, and connectivity checks explain invalid inputs.
+
+Each graph has 1–16 nodes labeled 0 through n − 1, including isolated nodes, and up to 64 input edges. Edges are JSON pairs or weighted triples; parallel edges and self-loops retain separate IDs. Weights are integers from −999 to 999, with negative weights rejected by Dijkstra. Load a preset or edit the graph and sources, then use Play/Pause, Back, Step, Reset, speed, or the step slider. Graph as text preserves the numbered adjacency entries for dense examples. Playback pauses when changing workspaces or hiding the browser tab, and invalid input keeps the last accepted visualization.
+
+`assets/graph-algorithms/` separates definitions and traces (`traversal.mjs`, `weighted.mjs`, `connectivity.mjs`) from input validation, diagram rendering, shared playback, and the registry. The standalone Python listings describe these teaching implementations; related NeetCode lessons continue to load the original practice files unchanged. Priority queues are displayed in sorted priority order, not as internal heap arrays. Complexity excludes the snapshots stored for playback.
 
 ## NeetCode lessons
 
