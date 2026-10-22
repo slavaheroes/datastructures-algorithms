@@ -29,7 +29,7 @@ Each build adds a content-based version query to the staged scripts and styles, 
 
 ## Pages and visualizer modules
 
-`#data-structures` opens an overview with links to Trees, Graphs, and Union Find. Each has a separate workspace at `#data-structures/trees`, `#data-structures/graphs`, and `#data-structures/union-find`. `#algorithms` lists Merge and Quick Sort, Heap, Pathfinding comparison, and six standalone graph algorithm workspaces. Sorting and Heap use `#algorithms/merge-sort`, `#algorithms/quick-sort`, and `#algorithms/heap`. Previous `#sorting`, `#algorithms/sorting`, and `#algorithms/bubble-sort` links redirect to Merge Sort. Removed DFS cycle detection and Multi-source BFS workspace links redirect to the Algorithms overview; their related NeetCode lessons remain available. `#structures` redirects to Trees.
+`#data-structures` opens an overview with links to Trees, Graphs, and Union Find. Each has a separate workspace at `#data-structures/trees`, `#data-structures/graphs`, and `#data-structures/union-find`. `#algorithms` lists Merge and Quick Sort, Heap, and six standalone graph algorithm workspaces. Sorting and Heap use `#algorithms/merge-sort`, `#algorithms/quick-sort`, and `#algorithms/heap`. Previous `#sorting`, `#algorithms/sorting`, and `#algorithms/bubble-sort` links redirect to Merge Sort. Removed DFS cycle detection, Multi-source BFS, and `#algorithms/pathfinding-comparison` workspace links redirect to the Algorithms overview; related NeetCode lessons remain available. `#structures` redirects to Trees.
 
 `assets/app.mjs` handles routing and loads page modules on demand. `assets/pages/data-structures.mjs` and `assets/pages/algorithms.mjs` list their sections, while `assets/pages/sections.mjs` builds the common page layout. Each tool mounts on its first visit; only the selected tool is attached to the page. Visualizers keep their state when switching tools or pages, and playback pauses when leaving a tool.
 
@@ -59,16 +59,6 @@ Algorithms includes six standalone graph workspaces, each with an explanation, o
 Each graph has 1–16 nodes labeled 0 through n − 1, including isolated nodes, and up to 64 input edges. Edges are JSON pairs or weighted triples; parallel edges and self-loops retain separate IDs. Weights are integers from −999 to 999, with negative weights rejected by Dijkstra. Load a preset or edit the graph and sources, then use Play/Pause, Back, Step, Reset, speed, or the step slider. Graph as text preserves the numbered adjacency entries for dense examples. Playback pauses when changing workspaces or hiding the browser tab, and invalid input keeps the last accepted visualization.
 
 `assets/graph-algorithms/` separates definitions and traces (`traversal.mjs`, `weighted.mjs`, `connectivity.mjs`) from input validation, diagram rendering, shared playback, and the registry. The standalone Python listings describe these teaching implementations; related NeetCode lessons continue to load the original practice files unchanged. Priority queues are displayed in sorted priority order, not as internal heap arrays. Complexity excludes the snapshots stored for playback.
-
-## Pathfinding comparison
-
-`#algorithms/pathfinding-comparison` runs Dijkstra, Bellman–Ford, and A* on identical grids with four-directional movement and unit edge costs. Generate reproducible random walls with a seed and obstacle percentage, edit walls or start/goal cells, or load a preset. Grids use 5–40 rows and columns; their cell limit is separate from the 16-node graph editors. Random generation does not silently carve a route, so some grids have no path.
-
-The three diagrams share playback controls and show the searches and resulting routes side by side. Reported elapsed times measure computation in a browser worker, separately from trace collection and animation. The comparison reports median run times and work counts; browser timing, grid layout, and implementation details affect the results. Animation speed does not represent computation speed. Bellman–Ford repeatedly scans edges until convergence, while Dijkstra and A* can stop when the goal is removed from their priority queue.
-
-A* normally uses Manhattan distance, which is admissible and consistent for this grid. It finds a shortest path when one exists. The misleading-heuristic preset deliberately multiplies that distance so it overestimates remaining cost and can return a longer route. A separate unreachable-goal preset shows all three algorithms correctly reporting no path. These outcomes distinguish a heuristic that loses the optimality guarantee from a grid that has no solution.
-
-`assets/pathfinding/` contains the grid model, search implementations, benchmark worker, and comparison controls. The comparison runs JavaScript teaching implementations and does not execute the stored NeetCode Python solutions.
 
 ## NeetCode lessons
 

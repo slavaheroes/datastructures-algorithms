@@ -12,7 +12,8 @@ const aliases = {
   'algorithms/sorting': 'algorithms/merge-sort',
   'algorithms/bubble-sort': 'algorithms/merge-sort',
   'algorithms/dfs-cycle-detection': 'algorithms',
-  'algorithms/multi-source-bfs': 'algorithms'
+  'algorithms/multi-source-bfs': 'algorithms',
+  'algorithms/pathfinding-comparison': 'algorithms'
 };
 const mounted = new Map(), loading = new Map();
 let active, request = 0;

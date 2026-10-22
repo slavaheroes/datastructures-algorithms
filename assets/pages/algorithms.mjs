@@ -4,12 +4,11 @@ import {availableSortingAlgorithms} from '../sorting/registry.mjs';
 import {mountHeap} from '../heap/visualizer.mjs';
 import {graphAlgorithms} from '../graph-algorithms/registry.mjs';
 import {mountGraphAlgorithm} from '../graph-algorithms/visualizer.mjs';
-import {mountPathfinding} from '../pathfinding/visualizer.mjs';
 
 export function mount(root) {
   return mountSections(root, {
     id: 'algorithms', title: 'Algorithms',
-    description: 'Step through sorting, heap operations, and graph algorithms, or compare shortest-path searches on the same grid.',
+    description: 'Step through sorting, heap operations, and graph algorithms with explanations, Python code, and complexity.',
     sections: [...availableSortingAlgorithms.map(algorithm => ({
       id: `${algorithm.id}-sort`, title: algorithm.label,
       description: {
@@ -21,10 +20,6 @@ export function mount(root) {
       id: 'heap', title: 'Heap',
       description: 'Build a heap with heapify, then follow heappush and heappop in its array and tree.',
       mount: mountHeap
-    }, {
-      id: 'pathfinding-comparison', title: 'Pathfinding comparison',
-      description: 'Compare Dijkstra, Bellman–Ford, and A* on the same grid with blocked cells.',
-      mount: mountPathfinding
     }, ...graphAlgorithms.map(algorithm => ({
       id: algorithm.id, title: algorithm.title, description: algorithm.summary,
       mount: container => mountGraphAlgorithm(container, algorithm)
