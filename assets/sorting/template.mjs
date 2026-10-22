@@ -5,7 +5,7 @@ export const template = `<div class="sort-config panel">
 </div>
 <p class="error" id="sort-error" role="alert"></p>
 <div class="algorithm-workspace"><div class="canvas-panel">
-  <div class="canvas-heading"><span id="sort-name">BUBBLE SORT</span><span><span class="legend-dot"></span> Active operation</span></div>
+  <div class="canvas-heading"><span id="sort-name">SORTING</span><span><span class="legend-dot"></span> Active operation</span></div>
   <div id="sort-bars" aria-label="Array visualization"></div>
   <p class="sort-message" id="sort-message"></p>
   <p class="sr-only" id="sort-announcement" aria-live="polite"></p>

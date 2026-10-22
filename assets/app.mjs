@@ -6,7 +6,14 @@ const pages = {
   algorithms: {title: 'Algorithms', load: () => import('./pages/algorithms.mjs')},
   practice: {title: 'NeetCode 150', enter: showLesson, leave: hideLesson}
 };
-const aliases = {structures: 'data-structures/trees', sorting: 'algorithms/bubble-sort', 'algorithms/sorting': 'algorithms/bubble-sort'};
+const aliases = {
+  structures: 'data-structures/trees',
+  sorting: 'algorithms/merge-sort',
+  'algorithms/sorting': 'algorithms/merge-sort',
+  'algorithms/bubble-sort': 'algorithms/merge-sort',
+  'algorithms/dfs-cycle-detection': 'algorithms',
+  'algorithms/multi-source-bfs': 'algorithms'
+};
 const mounted = new Map(), loading = new Map();
 let active, request = 0;
 

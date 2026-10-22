@@ -1,6 +1,6 @@
 import {numberArray} from '../shared/input.mjs';
 import {byId, escape, guarded} from '../shared/dom.mjs';
-import {sortingAlgorithms} from './registry.mjs';
+import {availableSortingAlgorithms as sortingAlgorithms} from './registry.mjs';
 import {sortingSteps} from './steps.mjs';
 import {sortBars} from './view.mjs';
 import {template} from './template.mjs';

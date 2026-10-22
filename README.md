@@ -29,7 +29,7 @@ Each build adds a content-based version query to the staged scripts and styles, 
 
 ## Pages and visualizer modules
 
-`#data-structures` opens an overview with links to Trees, Graphs, and Union Find. Each has a separate workspace at `#data-structures/trees`, `#data-structures/graphs`, and `#data-structures/union-find`. `#algorithms` lists Bubble, Merge, and Quick Sort, Heap, and eight graph algorithm workspaces. Sorting and Heap retain their routes at `#algorithms/bubble-sort`, `#algorithms/merge-sort`, `#algorithms/quick-sort`, and `#algorithms/heap`. Previous `#structures`, `#sorting`, and `#algorithms/sorting` links redirect to the corresponding tools.
+`#data-structures` opens an overview with links to Trees, Graphs, and Union Find. Each has a separate workspace at `#data-structures/trees`, `#data-structures/graphs`, and `#data-structures/union-find`. `#algorithms` lists Merge and Quick Sort, Heap, Pathfinding comparison, and six standalone graph algorithm workspaces. Sorting and Heap use `#algorithms/merge-sort`, `#algorithms/quick-sort`, and `#algorithms/heap`. Previous `#sorting`, `#algorithms/sorting`, and `#algorithms/bubble-sort` links redirect to Merge Sort. Removed DFS cycle detection and Multi-source BFS workspace links redirect to the Algorithms overview; their related NeetCode lessons remain available. `#structures` redirects to Trees.
 
 `assets/app.mjs` handles routing and loads page modules on demand. `assets/pages/data-structures.mjs` and `assets/pages/algorithms.mjs` list their sections, while `assets/pages/sections.mjs` builds the common page layout. Each tool mounts on its first visit; only the selected tool is attached to the page. Visualizers keep their state when switching tools or pages, and playback pauses when leaving a tool.
 
@@ -37,20 +37,18 @@ Tree and graph modules live in `assets/data-structures/trees/` and `assets/data-
 
 To add a data structure section, create its visualizer module with a mount function accepting a container, then add an entry to the appropriate page's `sections` array. A mount function can return `{deactivate()}` to pause timers when leaving the tool. Future sections can be added without changing the router or existing visualizers.
 
-Sorting modules live in `assets/sorting/`. Bubble, Merge, and Quick Sort each have their own file in `assets/sorting/algorithms/`, including their display name, complexity explanation, and `sort(trace)` function. Add a module to `assets/sorting/registry.mjs` to give it a link and workspace under Algorithms. Each workspace uses the shared sorting visualizer with a fixed algorithm and its own playback state. `trace.mjs` records comparisons, swaps, writes, and snapshots for shared playback. `assets/algorithms.mjs` retains the original exported functions for existing consumers and CI checks.
+Sorting modules live in `assets/sorting/`. Merge and Quick Sort each have their own file in `assets/sorting/algorithms/`, including their display name, complexity explanation, and `sort(trace)` function. `availableSortingAlgorithms` in `assets/sorting/registry.mjs` controls the visible workspaces. The full trace registry retains Bubble Sort for existing consumers and CI checks, but the website no longer offers its workspace. Each workspace uses the shared sorting visualizer with a fixed algorithm and its own playback state. `trace.mjs` records comparisons, swaps, writes, and snapshots for shared playback. `assets/algorithms.mjs` retains the original exported functions for existing consumers and CI checks.
 
 Heap modules live in `assets/heap/`. The Heap workspace shows a complete binary tree and its indexed array together. Choose a min heap or max heap, then step through `heapify`, `heappush`, or `heappop` with up to 16 values. Playback highlights comparisons and swaps, supports Back and Reset, and pauses when leaving the workspace. Finish the current operation before starting another so the next operation uses its completed result. The explanations distinguish O(n) bottom-up heap construction from O(log n) insertion and removal; heap order does not imply a sorted array.
 
-Every Algorithms workspace includes Python code with numbered lines, the current operation, and variable values for the selected playback step. The diagram and code advance together with Play, Step, Back, and Reset. Code appears beside the diagram on wide screens and below it on narrow screens; its own scroll area follows the active line. Sorting code lives with each sorting algorithm, and heap code in `assets/heap/code.mjs` follows the selected operation and min/max mode. `assets/shared/algorithm-code.mjs` renders the shared panel. The Python listings describe the visualized implementations; heap sifts remain a teaching implementation rather than the exact internal moves of Python’s heapq.
+The sorting, Heap, and standalone graph workspaces include Python code with numbered lines, the current operation, and variable values for the selected playback step. The diagram and code advance together with Play, Step, Back, and Reset. Code appears beside the diagram on wide screens and below it on narrow screens; its own scroll area follows the active line. Sorting code lives with each sorting algorithm, and heap code in `assets/heap/code.mjs` follows the selected operation and min/max mode. `assets/shared/algorithm-code.mjs` renders the shared panel. The Python listings describe the visualized implementations; heap sifts remain a teaching implementation rather than the exact internal moves of Python’s heapq.
 
 The code panel uses Python syntax colors and wraps long statements by default; Wrap lines switches to the original horizontal layout. Array values and recursion stacks occupy the full state area so their contents remain readable. Active line numbers stay tied to the source statements when a statement wraps across multiple display rows.
 
 ## Graph algorithms
 
-Algorithms includes eight standalone workspaces, each with an explanation, ordered steps, complexity, editable examples, and Python code synchronized with the diagram and state table:
+Algorithms includes six standalone graph workspaces, each with an explanation, ordered steps, complexity, editable examples, and Python code synchronized with the diagram and state table:
 
-- `#algorithms/dfs-cycle-detection`: DFS for directed or undirected cycle detection, including the active recursion path, finished nodes, and parent-edge tracking.
-- `#algorithms/multi-source-bfs`: simultaneous sources, enqueue-time discovery, queue order, and nearest-source distances.
 - `#algorithms/kahn-topological-sort`: indegrees, the ready queue, dependency ordering, and nodes blocked by a cycle.
 - `#algorithms/dijkstra`: nonnegative weighted shortest paths, tentative and finalized distances, predecessor edges, and stale priority-queue entries.
 - `#algorithms/bellman-ford`: repeated edge relaxation, early stopping, negative edges, and reachable negative-cycle detection. An unreachable negative cycle does not invalidate the source's result.
@@ -61,6 +59,16 @@ Algorithms includes eight standalone workspaces, each with an explanation, order
 Each graph has 1–16 nodes labeled 0 through n − 1, including isolated nodes, and up to 64 input edges. Edges are JSON pairs or weighted triples; parallel edges and self-loops retain separate IDs. Weights are integers from −999 to 999, with negative weights rejected by Dijkstra. Load a preset or edit the graph and sources, then use Play/Pause, Back, Step, Reset, speed, or the step slider. Graph as text preserves the numbered adjacency entries for dense examples. Playback pauses when changing workspaces or hiding the browser tab, and invalid input keeps the last accepted visualization.
 
 `assets/graph-algorithms/` separates definitions and traces (`traversal.mjs`, `weighted.mjs`, `connectivity.mjs`) from input validation, diagram rendering, shared playback, and the registry. The standalone Python listings describe these teaching implementations; related NeetCode lessons continue to load the original practice files unchanged. Priority queues are displayed in sorted priority order, not as internal heap arrays. Complexity excludes the snapshots stored for playback.
+
+## Pathfinding comparison
+
+`#algorithms/pathfinding-comparison` runs Dijkstra, Bellman–Ford, and A* on identical grids with four-directional movement and unit edge costs. Generate reproducible random walls with a seed and obstacle percentage, edit walls or start/goal cells, or load a preset. Grids use 5–40 rows and columns; their cell limit is separate from the 16-node graph editors. Random generation does not silently carve a route, so some grids have no path.
+
+The three diagrams share playback controls and show the searches and resulting routes side by side. Reported elapsed times measure computation in a browser worker, separately from trace collection and animation. The comparison reports median run times and work counts; browser timing, grid layout, and implementation details affect the results. Animation speed does not represent computation speed. Bellman–Ford repeatedly scans edges until convergence, while Dijkstra and A* can stop when the goal is removed from their priority queue.
+
+A* normally uses Manhattan distance, which is admissible and consistent for this grid. It finds a shortest path when one exists. The misleading-heuristic preset deliberately multiplies that distance so it overestimates remaining cost and can return a longer route. A separate unreachable-goal preset shows all three algorithms correctly reporting no path. These outcomes distinguish a heuristic that loses the optimality guarantee from a grid that has no solution.
+
+`assets/pathfinding/` contains the grid model, search implementations, benchmark worker, and comparison controls. The comparison runs JavaScript teaching implementations and does not execute the stored NeetCode Python solutions.
 
 ## NeetCode lessons
 
