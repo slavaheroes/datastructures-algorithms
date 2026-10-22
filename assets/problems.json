@@ -894,5 +894,133 @@
     "category": "Greedy",
     "source": "neetcode/greedy/validParenthesisString.py",
     "module": "assets/problems/valid-parenthesis-string.mjs"
+  },
+  {
+    "slug": "decode-ways",
+    "title": "Decode Ways",
+    "difficulty": "Medium",
+    "category": "1D DP",
+    "source": "neetcode/1d-DP/decodeWays.py",
+    "module": "assets/problems/decode-ways.mjs"
+  },
+  {
+    "slug": "coin-change",
+    "title": "Coin Change",
+    "difficulty": "Medium",
+    "category": "1D DP",
+    "source": "neetcode/1d-DP/coinChange.py",
+    "module": "assets/problems/coin-change.mjs"
+  },
+  {
+    "slug": "longest-increasing-subsequence",
+    "title": "Longest Increasing Subsequence",
+    "difficulty": "Medium",
+    "category": "1D DP",
+    "source": "neetcode/1d-DP/longestIncreasingSubsequence.py",
+    "module": "assets/problems/longest-increasing-subsequence.mjs"
+  },
+  {
+    "slug": "best-time-to-buy-and-sell-stock-with-cooldown",
+    "title": "Best Time to Buy and Sell Stock with Cooldown",
+    "difficulty": "Medium",
+    "category": "2D DP",
+    "source": "neetcode/2d-DP/bestTimeBuySellStock.py",
+    "module": "assets/problems/best-time-to-buy-and-sell-stock-with-cooldown.mjs"
+  },
+  {
+    "slug": "coin-change-2",
+    "title": "Coin Change 2",
+    "difficulty": "Medium",
+    "category": "2D DP",
+    "source": "neetcode/2d-DP/coinChange2.py",
+    "module": "assets/problems/coin-change-2.mjs"
+  },
+  {
+    "slug": "target-sum",
+    "title": "Target Sum",
+    "difficulty": "Medium",
+    "category": "2D DP",
+    "source": "neetcode/2d-DP/targetSum.py",
+    "module": "assets/problems/target-sum.mjs"
+  },
+  {
+    "slug": "distinct-subsequences",
+    "title": "Distinct Subsequences",
+    "difficulty": "Hard",
+    "category": "2D DP",
+    "source": "neetcode/2d-DP/distinctSubsequences.py",
+    "module": "assets/problems/distinct-subsequences.mjs"
+  },
+  {
+    "slug": "edit-distance",
+    "title": "Edit Distance",
+    "difficulty": "Medium",
+    "category": "2D DP",
+    "source": "neetcode/2d-DP/editDistance.py",
+    "module": "assets/problems/edit-distance.mjs"
+  },
+  {
+    "slug": "burst-balloons",
+    "title": "Burst Balloons",
+    "difficulty": "Hard",
+    "category": "2D DP",
+    "source": "neetcode/2d-DP/burstBalloons.py",
+    "module": "assets/problems/burst-balloons.mjs"
+  },
+  {
+    "slug": "regular-expression-matching",
+    "title": "Regular Expression Matching",
+    "difficulty": "Hard",
+    "category": "2D DP",
+    "source": "neetcode/2d-DP/RegularExpressionMatching.py",
+    "module": "assets/problems/regular-expression-matching.mjs"
+  },
+  {
+    "slug": "number-of-1-bits",
+    "title": "Number of 1 Bits",
+    "difficulty": "Easy",
+    "category": "Bit Manipulation",
+    "source": "neetcode/bit-manipulation/numberOf1Bits.py",
+    "module": "assets/problems/number-of-1-bits.mjs"
+  },
+  {
+    "slug": "counting-bits",
+    "title": "Counting Bits",
+    "difficulty": "Easy",
+    "category": "Bit Manipulation",
+    "source": "neetcode/bit-manipulation/countingBits.py",
+    "module": "assets/problems/counting-bits.mjs"
+  },
+  {
+    "slug": "reverse-bits",
+    "title": "Reverse Bits",
+    "difficulty": "Easy",
+    "category": "Bit Manipulation",
+    "source": "neetcode/bit-manipulation/reverseBits.py",
+    "module": "assets/problems/reverse-bits.mjs"
+  },
+  {
+    "slug": "sum-of-two-integers",
+    "title": "Sum of Two Integers",
+    "difficulty": "Medium",
+    "category": "Bit Manipulation",
+    "source": "neetcode/bit-manipulation/sumOfTwoIntegers.py",
+    "module": "assets/problems/sum-of-two-integers.mjs"
+  },
+  {
+    "slug": "set-matrix-zeroes",
+    "title": "Set Matrix Zeroes",
+    "difficulty": "Medium",
+    "category": "Math & Geometry",
+    "source": "neetcode/math/setMatrixZeroes.py",
+    "module": "assets/problems/set-matrix-zeroes.mjs"
+  },
+  {
+    "slug": "pow-x-n",
+    "title": "Pow(x, n)",
+    "difficulty": "Medium",
+    "category": "Math & Geometry",
+    "source": "neetcode/math/myPower.py",
+    "module": "assets/problems/pow-x-n.mjs"
   }
 ]
